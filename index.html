@@ -5,13 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <!-- Icon for browser tab -->
+    <link rel="Icon" href="./painting.png">
     <title>Art Gallery</title>
 </head>
 <body>
-    <form action="">
+    <header id="header">
+        <nav>
+            <h1 id="title-main">Art Gallery.</h1>
+        </nav>
+    </header>
+    <!-- Add search functionality in the future -->
+    <!-- <form action="">
         <input type="text" id="input">
-    </form>
-    <img src="" alt="" id="img">
+    </form> -->
+    <div id="art-container">
+        <img src="" alt="" id="img">
+        <div id="art-descripton">
+            <h2>Artist: <span id="artist-title"></span></h2>
+            <h3>" <span id="art-title"></span>"</h3>
+            <h4 id="date"></h4>
+            <h4 id="classification"></h4>
+        </div>
+    </div>
+
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
