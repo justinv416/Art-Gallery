@@ -17,6 +17,16 @@
 #art-container {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
+}
+
+#art-title {
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+#date {
+    font-size: 40px;
 }
 
 #title-main {
@@ -24,6 +34,78 @@
     font-size: 30px;
 }
 
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+}
+
+/* Navigation */
 span {
     color: var(--sc-text);
 }
+
+#nav-main {
+    background-color: violet;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 90%;
+    margin: auto; */
+}
+
+#nav-sub {
+    background-color: yellow;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#nav-sub ul {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#hamburger {
+    height: 30px;
+    width: 40px;
+    background-color: turquoise;
+    margin: 10px;
+    position: relative;
+}
+
+#hamburger span {
+    width: 100%;
+    height: 5px;
+    background: var(--pc-text);
+    position: absolute;
+}
+
+#hamburger span:nth-child(1) {
+    top: 0;
+}
+
+#hamburger span:nth-child(2) {
+    top: 40%;
+}
+
+#hamburger span:nth-child(3) {
+    bottom: 0;
+}
+
+.open {
+    bottom: 10px;
+    transform: rotate(45deg);
+}
+
+/* 
+on click: 
+    span 1 should rotate -45deg and top set at 10
+    span 2 should be opacity 0
+    span 3 should rotate 45deg and bottom set to 10
+
+on close revert back to default values 
+
+add a smooth transition effect
+*/
