@@ -11,8 +11,8 @@ app.getArtworks = function() {
         const randomNum = app.generateRandomNum(data.length)
         app.displayArt(
             data[randomNum].image_id, 
-            data[randomNum].artist_title,
             data[randomNum].title,
+            data[randomNum].artist_title,
             data[randomNum].date_display,
             data[randomNum].classification_title,
             data[randomNum].medium_display
@@ -24,7 +24,6 @@ app.getArtworks = function() {
     })
 }
 
-app.getArtworks();
 
 //random number generator
 app.generateRandomNum = function(max) {
@@ -49,40 +48,76 @@ app.navControls = function() {
     });
 };
 
-app.init = function() {
+app.init = function(){
     app.getArtworks();
-    app.navControls();
 }
 
-app.init();
+app.navControls();
 
-// app.searchArtworks = function() {
-//     $.ajax({
-//         url: 'https://api.artic.edu/api/v1/artworks/search?',
-//         dataType: 'json',
-//         data: {
-//             q: `${$('#input').val()}`
-//         }
-//     }).then(function(object) {
-//         console.log(object.data)
-//         console.log($(this))
-//         app.displayArtTest(object.data[1].thumbnail.lqip)
-//     })
-// }
+app.startApp = function(){
+    $('#main').hide();
+    app.getArtworks()
+}
+
+$('#start').on('click', app.startApp);
+
+$('#arrow').on('click', app.getArtworks)
+
+// app.init();
+
+app.searchArtworks = function() {
+    $.ajax({
+        url: 'https://api.artic.edu/api/v1/artworks/search?',
+        dataType: 'json',
+        data: {
+            q: `${$('#input').val()}`
+        }
+    }).then(function(response) {
+        console.log(response.data)
+        console.log($(this))
+        const data = response.data;
+        data.forEach(function(data){
+            $.ajax({
+                url: `https://api.artic.edu/api/v1/artworks/${data.id}`,
+                dataType: 'json'
+            }).then(function(response){
+                const data = response.data;
+                const dataHTML = `
+                    <div id="results-container">
+                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image">
+                        <div id="description">
+                            <h2>${data.title}</h2>
+                            <h2>${data.artist_title}</h2>
+                            <h2>${data.date_display}</h2>
+                            <h2>${data.classification_title}</h2>
+                            <h2>${data.medium_display}</h2>
+                        </div>
+                    </div>
+                `
+                $('#results').append(dataHTML)
+                console.log(data)
+            })
+        })
+    })
+}
 
 
-// app.submitForm = function() {
-//     const form = $('form')
-//     form.on('submit', function(e){
-//         e.preventDefault();
-//         console.log($('#input').val())
-//         app.searchArtworks()
-//     }); 
-// }
+app.submitForm = function() {
+    const form = $('form')
+    form.on('submit', function(e){
+        e.preventDefault();
+        console.log($('#input').val())
+        app.searchArtworks()
+        $('#main').hide();
+    }); 
+}
 
-// app.submitForm();
+app.submitForm();
 
-
+$('#title-main').on('click', function(){
+    $('#results').empty()
+    $('#main').show()
+})
 
 /*Issues:  
 
