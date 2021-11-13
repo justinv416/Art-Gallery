@@ -17,6 +17,18 @@ html {
     font-family: 'Playfair Display', serif;
 }
 
+footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* background-color: yellowgreen; */
+}
+
+a {
+    color: var(--pc-text);
+    text-decoration: none;
+}
+
 /* Main section */
 .main-content-container {
     /* background-color: yellow; */
@@ -29,7 +41,11 @@ html {
 
 .main-content {
     width: 50%;
+    height: 70%;
     /* background-color: turquoise; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 50px;
 }
 
@@ -37,8 +53,15 @@ html {
     font-size: 50px;
 }
 
+.main-content-copy-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
 .main-content-copy {
     font-size: 20px;
+    line-height: 30px;
 }
 
 .main-img-container {
@@ -93,15 +116,6 @@ html {
     font-size: 40px;
 }
 
-#title-main {
-    margin: 10px 0 10px 50px;
-    font-size: 30px;
-}
-
-
-
-
-
 .main-heading {
     color: var(--pc-text-white);
     text-transform: uppercase;
@@ -114,8 +128,26 @@ html {
 
 
 /* Navigation */
-/* .nav__main {
-    background-color: white;
+.logo {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.infinite-icon {
+    width: 50px;
+    height: 50px;
+    /* background-color: yellow; */
+    /* margin-right: 10px; */
+    margin-right: 10px;
+}
+
+#title-main {
+    font-size: 30px;
+}
+
+.nav__main {
+    background-color: var(--pc-text-white);
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -129,4 +161,10 @@ html {
     width: 10%;
     list-style-type: none;
     margin-right: 50px;
-} */
+}
+
+.links-container {
+    margin-right: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}

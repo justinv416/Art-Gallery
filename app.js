@@ -108,7 +108,6 @@ app.submitForm = function() {
         e.preventDefault();
         console.log($('#search-input').val())
         app.searchArtworks()
-        $('#main').hide();
     }); 
 }
 
@@ -121,10 +120,16 @@ $('#title-main').on('click', function(){
 })
 
 //need to write a function that will show form on click
+app.showSearch = function() {
+    $('#search-form').show();
+};
+
+$('#search-btn').on('click', app.showSearch)
 
 //generate btn should trigger ajax call
 
 $('#search-form').hide();
+
 
 /*Issues:  
 
