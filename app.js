@@ -70,7 +70,7 @@ app.searchArtworks = function() {
         url: 'https://api.artic.edu/api/v1/artworks/search?',
         dataType: 'json',
         data: {
-            q: `${$('#input').val()}`
+            q: `${$('#search-input').val()}`
         }
     }).then(function(response) {
         console.log(response.data)
@@ -106,7 +106,7 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(e){
         e.preventDefault();
-        console.log($('#input').val())
+        console.log($('#search-input').val())
         app.searchArtworks()
         $('#main').hide();
     }); 
@@ -116,8 +116,15 @@ app.submitForm();
 
 $('#title-main').on('click', function(){
     $('#results').empty()
+    $('#random-art').hide()
     $('#main').show()
 })
+
+//need to write a function that will show form on click
+
+//generate btn should trigger ajax call
+
+$('#search-form').hide();
 
 /*Issues:  
 

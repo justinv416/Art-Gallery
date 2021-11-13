@@ -1,12 +1,60 @@
+/* CSS reset */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+    --pc-text: #000;
+    --pc-text-white: #fff;
+    --sc-text: #aaa;
+}
+
+/* Global styling */
+html {
     font-family: 'Playfair Display', serif;
 }
 
-:root {
-    --pc-text: #000;
-    --sc-text: #aaa;
+/* Main section */
+.main-content-container {
+    /* background-color: yellow; */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.main-content {
+    width: 50%;
+    /* background-color: turquoise; */
+    padding: 50px;
+}
+
+.main-content-heading {
+    font-size: 50px;
+}
+
+.main-content-copy {
+    font-size: 20px;
+}
+
+.main-img-container {
+    width: 50%;
+}
+
+.main-button {
+    width: 200px;
+    height: 40px;
+    background: none;
+    font-size: 18px;
+}
+
+.main-img {
+    width: 100%;
+    padding: 50px;
 }
 
 #arrow {
@@ -46,88 +94,39 @@
 }
 
 #title-main {
-    margin: 10px;
+    margin: 10px 0 10px 50px;
     font-size: 30px;
 }
 
-/* main {
-    height: 100vh;
-} */
 
-#main__img {
-    width: 100%;
-    height: 100vh;
+
+
+
+.main-heading {
+    color: var(--pc-text-white);
+    text-transform: uppercase;
 }
 
-#main__container {
-    display: flex;
+#search-input {
+    width: 500px;
+    height: 30px;
 }
+
 
 /* Navigation */
-span {
-    color: var(--sc-text);
-}
-
-#nav-main {
-    /* background-color: violet; */
+/* .nav__main {
+    background-color: white;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* width: 90%;
-    margin: auto; */
+    position: fixed;
 }
 
-#nav-sub {
-    background-color: yellow;
+.nav__main-list {
     display: flex;
-    justify-content: space-evenly;
-}
-
-#nav-sub ul {
-    width: 50%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#hamburger {
-    height: 30px;
-    width: 40px;
-    /* background-color: turquoise; */
-    margin: 10px;
-    position: relative;
-}
-
-#hamburger span {
-    width: 100%;
-    height: 5px;
-    background: var(--pc-text);
-    position: absolute;
-}
-
-#hamburger span:nth-child(1) {
-    top: 0;
-}
-
-#hamburger span:nth-child(2) {
-    top: 40%;
-}
-
-#hamburger span:nth-child(3) {
-    bottom: 0;
-}
-
-.open {
-    bottom: 10px;
-    transform: rotate(45deg);
-}
-
-/* 
-on click: 
-    span 1 should rotate -45deg and top set at 10
-    span 2 should be opacity 0
-    span 3 should rotate 45deg and bottom set to 10
-
-on close revert back to default values 
-
-add a smooth transition effect
-*/
+    justify-content: space-between;
+    width: 10%;
+    list-style-type: none;
+    margin-right: 50px;
+} */

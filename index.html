@@ -11,41 +11,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <!-- Icon for browser tab -->
     <link rel="Icon" href="./Icons/painting.png">
-    <title>Art Gallery</title>
+    <title>Limitless Inspiration</title>
 </head>
 <body>
-    <header id="header">
-        <nav id="nav-main">
-            <h1 id="title-main">Art Gallery.</h1>
-            <div id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-        <nav id="nav-sub">
-            <ul>
-                <a><li>About</li></a>
-                <a><li>Search</li></a>
-                <a><li>contact</li></a>
-            </ul>
-            <form action="" id="search-form">
-                <input type="text" id="input" placeholder="Search for art e.g. Monet">
-            </form>
-        </nav>
-    </header>
-    <!-- Add search functionality in the future -->
     
+    <header id="header">
+        <!-- <nav class="nav__main">
+            <h2 id="title-main">Art Gallery.</h2>
+            <ul class="nav__main-list">
+                <li>about</li>
+                <li>contact</li>
+            </ul>
+        </nav> -->
+    </header>
+
     <main>
 
         <section id="main">
-            <div id="main__container">
-                <img src="./Images/zgc1993-Fk9RSVdJ6Q8-unsplash.jpg" alt="" id="main__img">
-                <div id="main__content-container">
-                    <p id="about">Powered by the The Art Institute of Chicago API this app generates 
-                        a randomly selected artwork from their vast collection. 
+            <div class="main-content-container">
+                <div class="main-content">
+                    <h1 class="main-content-heading">Limitless Inspiration.</h1>
+                    <p class="main-content-copy">
+                        Powered by the Art Institute of Chicago's API, 
+                        Limitless Inpsiration is a website that allows users to generate random artworks 
+                        for daily inspiration or search for artworks from their extensive collection. 
                     </p>
-                    <button id="start">Start</button>
+                    <div class="main-button-container">
+                        <button class="main-button" id="generate-btn">Generate Art</button>
+                        <button class="main-button" id="search-btn">Search for Art</button>
+                    </div>
+                    <form action="" id="search-form">
+                        <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
+                    </form> 
+                    <footer id="footer">
+
+                    </footer>
+                </div>
+                <div class="main-img-container">
+                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="" class="main-img">
                 </div>
             </div>
         </section>
@@ -59,7 +62,7 @@
                     <h3 id="date"></h3>
                     <h3 id="classification"></h3>
                     <h3 id="medium"></h3>
-                    <img src="./Icons/right-arrow.png" alt="" id="arrow">
+                    <!-- <img src="./Icons/right-arrow.png" alt="" id="arrow"> -->
                 </div>
             </div>
         </section>
@@ -69,10 +72,6 @@
         </section>
 
     </main>
-    
-    <footer id="footer">
-
-    </footer>
 
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
