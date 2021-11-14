@@ -1,0 +1,16 @@
+//HTML
+☐ Clean up/ refactor
+
+//CSS
+☐ Cleanup/refactor
+☐ footer causing z-index issues
+
+//JS
+☐ Clean up/ refactor
+☐ Make sure namespace oraganization is consistent
+☐ When searching for artwork ensure previous entries are emptied first
+☐ Maybe add a way to increase art display limit within form
+☐ Loading screen to let data finish loading
+☐ function to Auto scroll to content when loaded.
+☐ Modal when clicking on artwork
+☐ add no image function to search results

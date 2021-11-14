@@ -15,7 +15,8 @@ app.getArtworks = function() {
             data[randomNum].artist_title,
             data[randomNum].date_display,
             data[randomNum].classification_title,
-            data[randomNum].medium_display
+            data[randomNum].medium_display,
+            data[randomNum].place_of_origin
         )
         if(data[randomNum].image_id === null) {
             console.log('image is not available')
@@ -31,13 +32,14 @@ app.generateRandomNum = function(max) {
 }
 
 //Displays art
-app.displayArt = function(imgSrc, title, artist, date, classification, medium) {
-    $('#img').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
-    $('#art-title').text(`${title}`);
-    $('#artist-title').text(`${artist}`);
-    $('#date').text(`${date}`);
-    $('#classification').text(`${classification}`);
-    $('#medium').text(`${medium}`);
+app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin) {
+    $('.art-img').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
+    $('.art-title').text(`${title}`);
+    $('.artist-title').text(`${artist}`);
+    $('.date').text(`${date}`);
+    $('.classification').text(`${classification}`);
+    $('.medium').text(`${medium}`);
+    $('.origin').text(`${origin}`);
 }
 
 //Navigation toggle
@@ -70,7 +72,8 @@ app.searchArtworks = function() {
         url: 'https://api.artic.edu/api/v1/artworks/search?',
         dataType: 'json',
         data: {
-            q: `${$('#search-input').val()}`
+            q: `${$('#search-input').val()}`,
+            limit: '10'
         }
     }).then(function(response) {
         console.log(response.data)
@@ -84,13 +87,18 @@ app.searchArtworks = function() {
                 const data = response.data;
                 const dataHTML = `
                     <div id="results-container">
-                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image">
-                        <div id="description">
-                            <h2>${data.title}</h2>
-                            <h2>${data.artist_title}</h2>
-                            <h2>${data.date_display}</h2>
-                            <h2>${data.classification_title}</h2>
-                            <h2>${data.medium_display}</h2>
+                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image"> 
+                        <div class="art-description">
+                            <div class="details-container">
+                                <h2 class="art-title">${data.title}</h2>
+                                <h2 class="artist-title">${data.artist_title}</h2>
+                                <h2 class="date">${data.date_display}</h2>
+                            </div>
+                            <div class="details-container">
+                                <h2 class="classification">${data.classification_title}</h2>
+                                <h2 class="medium">${data.medium_display}</h2>
+                                <h2 class="origin">${data.place_of_origin}</h2>
+                            </div>
                         </div>
                     </div>
                 `
@@ -116,7 +124,6 @@ app.submitForm();
 $('#title-main').on('click', function(){
     $('#results').empty()
     $('#random-art').hide()
-    $('#main').show()
 })
 
 //need to write a function that will show form on click
@@ -124,11 +131,18 @@ app.showSearch = function() {
     $('#search-form').show();
 };
 
-$('#search-btn').on('click', app.showSearch)
+// $('#search-btn').on('click', app.showSearch)
 
 //generate btn should trigger ajax call
+$('#generate-btn').on('click', function(){
+    app.getArtworks();
+    $('#random-art').show();
+});
+
 
 $('#search-form').hide();
+
+$('#random-art').hide();
 
 
 /*Issues:  

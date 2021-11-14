@@ -10,12 +10,14 @@
     --pc-text: #000;
     --pc-text-white: #fff;
     --sc-text: #aaa;
+    --tc-juno: #EA593E;
+    --tc-github: #6495ED;
+    /* Fonts */
+    --pf-playfair: 'Playfair Display', serif;
+    --sf-open-sans: 'Open Sans', sans-serif;
 }
 
 /* Global styling */
-html {
-    font-family: 'Playfair Display', serif;
-}
 
 footer {
     display: flex;
@@ -30,6 +32,11 @@ a {
 }
 
 /* Main section */
+#main {
+    height: 100vh;
+    /* background-color: yellowgreen; */
+}
+
 .main-content-container {
     /* background-color: yellow; */
     height: 100vh;
@@ -50,6 +57,7 @@ a {
 }
 
 .main-content-heading {
+    font-family: var(--pf-playfair);
     font-size: 50px;
 }
 
@@ -60,6 +68,7 @@ a {
 }
 
 .main-content-copy {
+    font-family: var(--sf-open-sans);
     font-size: 20px;
     line-height: 30px;
 }
@@ -75,46 +84,125 @@ a {
     font-size: 18px;
 }
 
+.main-button:hover {
+    background-color: var(--pc-text);
+    color: var(--pc-text-white);
+    transition: all .5s;
+}
+
 .main-img {
     width: 100%;
     padding: 50px;
+}
+
+/* Random art section */
+#random-art {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: lightcoral; */
+}
+
+#art-container {
+    /* background-color: violet; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 50px;
+}
+
+.details-container {
+    /* background-color: lightgreen; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 20%; */
+    height: 50%;
+    /* background-color: lightgrey; */
+}
+
+.details-container h2:nth-child(2) {
+    margin: 10px 0;
+}
+
+.details-container h3:nth-child(2) {
+    margin: 10px 0;
+}
+
+.art-img {
+    width: 50%;
+    height: auto;
+}
+
+.art-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50%;
+    /* background-color: yellow; */
+    height: 80%;
+    /* padding: 50px; */
+    margin: 50px;
+}
+
+.art-title {
+    font-family: var(--pf-playfair);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.artist-title {
+    font-family: var(--sf-open-sans);
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.date {
+    font-family: var(--sf-open-sans);
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.classification {
+    font-family: var(--sf-open-sans);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.medium {
+    font-family: var(--sf-open-sans);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.origin {
+    font-family: var(--sf-open-sans);
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
 #arrow {
     width: 50px;
 }
 
-.art-image {
-    width: 500px;
-}
-
+/* Search Results Section */
 #results-container {
     display: flex;
     align-items: center;
 }
 
-#random-art {
-    width: 100%;
+.art-image {
+    width: 50%;
+    margin: 0 50px 50px 50px
 }
 
-#img {
-    width: 500px;
-    height: auto;
-}
 
-#art-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#art-title {
-    text-transform: uppercase;
-    font-size: 50px;
-}
-
-#date {
-    font-size: 40px;
-}
 
 .main-heading {
     color: var(--pc-text-white);
@@ -126,6 +214,32 @@ a {
     height: 30px;
 }
 
+/* Footer */
+#juno-link, #me-link {
+    position: relative;
+}
+
+#juno-link:hover:after {
+    content: "";
+    width: 90px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--tc-juno);
+    transition: all 2s;
+}
+
+#me-link:hover:after {
+    content: "";
+    width: 77px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--tc-github);
+    transition: all 2s;
+}
 
 /* Navigation */
 .logo {
@@ -135,18 +249,18 @@ a {
 }
 
 .infinite-icon {
-    width: 50px;
-    height: 50px;
-    /* background-color: yellow; */
-    /* margin-right: 10px; */
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px 0 0;
 }
 
 #title-main {
-    font-size: 30px;
+    font-family: var(--pf-playfair);
+    font-size: 25px;
 }
 
 .nav__main {
+    height: 50px;
     background-color: var(--pc-text-white);
     width: 100%;
     display: flex;

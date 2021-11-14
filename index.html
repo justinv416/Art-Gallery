@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <!-- Icon for browser tab -->
-    <link rel="Icon" href="./Icons/painting.png">
+    <link rel="Icon" href="./Icons/infinity.png">
     <title>Limitless Inspiration</title>
 </head>
 <body>
@@ -40,7 +41,7 @@
                     </div>
                     <p class="main-content-copy">
                         Powered by the Art Institute of Chicago's API, 
-                        Limitless Inpsiration is a website that allows users to generate random artworks 
+                        Art Unlimited is a website that allows users to generate random artworks 
                         for daily inspiration or search for artworks from their extensive collection. 
                     </p>
                     <div class="main-button-container">
@@ -51,7 +52,7 @@
                         <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
                     </form> 
                     <footer id="footer">
-                        <p>Created by <a href="https://github.com/justinv416" target="blank">Justin Vien</a> at <a href="junocollege.com" target="blank"></a>Juno College</p>
+                        <p>Created by <a href="https://github.com/justinv416" target="blank" id="me-link">Justin Vien</a> at <a href="junocollege.com" target="blank" id="juno-link">Juno College</a></p>
                         <a href="https://www.artic.edu" target="blank">Visit the Art Insititue of Chicago</a>
                     </footer>
                 </div>
@@ -63,13 +64,19 @@
         
         <section id="random-art">
             <div id="art-container">
-                <img src="" alt="" id="img">
-                <div id="art-descripton">
-                    <h2><span id="art-title"></span></h2>
-                    <h2><span id="artist-title"></span></h2>
-                    <h3 id="date"></h3>
-                    <h3 id="classification"></h3>
-                    <h3 id="medium"></h3>
+                <img src="" alt="" class="art-img">
+                <div class="art-description">
+                    <div class="details-container">
+                        <h2><span class="art-title"></span></h2>
+                        <h2><span class="artist-title"></span></h2>
+                        <h3 class="date"></h3>
+                    </div>
+                    <div class="details-container">
+                        <h3 class="classification"></h3>
+                        <h3 class="medium"></h3>
+                        <h3 class="origin"></h3>
+                    </div>
+                    <button class="main-button" id="generate-btn">Generate Art</button>
                     <!-- <img src="./Icons/right-arrow.png" alt="" id="arrow"> -->
                 </div>
             </div>
