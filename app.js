@@ -4,17 +4,33 @@ const app = {};
 //random number generator
 app.generateRandomNum = function(max) {
     return Math.floor(Math.random() * max)
-}
+};
 
-//Funciton that will display art with parameters that will be passed in during the ajax call.
-app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin) {
-    $('.art-img').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
-    $('.art-title').text(`${title}`);
-    $('.artist-title').text(`${artist}`);
-    $('.date').text(`${date}`);
-    $('.classification').text(`${classification}`);
-    $('.medium').text(`${medium}`);
-    $('.origin').text(`${origin}`);
+//Not a big fan of having a boolean as a parameter should refactor at some point
+app.displayArtTest = function(imgSrc, title, artist, date, classification, medium, origin, isRandom) {
+    const artHTML = `
+        <div id="results-container">
+            <img src=https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg class="art-image"> 
+            <div class="art-description">
+                <div class="details-container">
+                    <h2 class="art-title">${title}</h2>
+                    <h2 class="artist-title">${artist}</h2>
+                    <h2 class="date">${date}</h2>
+                </div>
+                <div class="details-container">
+                    <h2 class="classification">${classification}</h2>
+                    <h2 class="medium">${medium}</h2>
+                    <h2 class="origin">${origin}</h2>
+                </div>
+            </div>
+        </div>
+    `; 
+    //Essentially a switch for rendering art.
+    if(isRandom === true) {
+        $('.random-output').html(artHTML)
+    } else {
+        $('#results').append(artHTML)
+    }
 };
 
 //Function to make the ajax call to API and generate random artwork.
@@ -32,14 +48,15 @@ app.getRandomArtworks = function() {
         //Store random number generator into a variable and pass the length of data array as a parameter.
         const randomNum = app.generateRandomNum(data.length)
         //Call displayArt function and pass data from response as parameters.
-        app.displayArt(
+        app.displayArtTest(
             data[randomNum].image_id, 
             data[randomNum].title,
             data[randomNum].artist_title,
             data[randomNum].date_display,
             data[randomNum].classification_title,
             data[randomNum].medium_display,
-            data[randomNum].place_of_origin
+            data[randomNum].place_of_origin,
+            true
         );
         //Boolean that displays a 'no pictures icon' if no images are available.  
         if(data[randomNum].image_id === null) {
@@ -65,6 +82,7 @@ app.searchArtworks = function() {
     }).then(function(response) {
         console.log(response.data)
         console.log($(this))
+        isRandom === false;
         const data = response.data;
         /*
             Foreach loop that will make an API call and pass in the id into another API call
@@ -77,25 +95,16 @@ app.searchArtworks = function() {
                 dataType: 'json'
             }).then(function(response){
                 const data = response.data;
-                const dataHTML = `
-                    <div id="results-container">
-                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image"> 
-                        <div class="art-description">
-                            <div class="details-container">
-                                <h2 class="art-title">${data.title}</h2>
-                                <h2 class="artist-title">${data.artist_title}</h2>
-                                <h2 class="date">${data.date_display}</h2>
-                            </div>
-                            <div class="details-container">
-                                <h2 class="classification">${data.classification_title}</h2>
-                                <h2 class="medium">${data.medium_display}</h2>
-                                <h2 class="origin">${data.place_of_origin}</h2>
-                            </div>
-                        </div>
-                    </div>
-                `
-                $('#results').append(dataHTML)
-                console.log(data)
+                app.displayArtTest(
+                    data.image_id, 
+                    data.title,
+                    data.artist_title,
+                    data.date_display,
+                    data.classification_title,
+                    data.medium_display,
+                    data.place_of_origin,
+                    false
+                );
             });
         });
     });
@@ -108,7 +117,6 @@ app.submitForm = function() {
         e.preventDefault();
         console.log($('#search-input').val())
         $('#random-art').hide();
-        app.scrollToResults();
         app.searchArtworks();
     }); 
 };
@@ -150,15 +158,19 @@ $('#next-btn').on('click', function(){
     app.getRandomArtworks();
 });
 
-app.scrollToResults = function() {
-    const results = $('#results')[0]
-    //Not working
-    results.scrollIntoView();
+//logs scroll postion on window scroll.
+$(window).on('scroll', function(){
+    console.log($(this).scrollTop())
+    app.addBorder();
+})
+
+//Working somewhat
+app.addBorder = function(){
+    if(window.scrollTop === 0){
+        $('.nav__main').removeClass('nav-border')
+    } else {
+        $('.nav__main').addClass('nav-border')
+    }
 }
 
-
-
-/*Issues:  
-
-*/
 
