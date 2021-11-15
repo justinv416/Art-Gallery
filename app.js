@@ -107,7 +107,9 @@ app.submitForm = function() {
     form.on('submit', function(e){
         e.preventDefault();
         console.log($('#search-input').val())
-        app.searchArtworks()
+        $('#random-art').hide();
+        app.scrollToResults();
+        app.searchArtworks();
     }); 
 };
 
@@ -121,7 +123,10 @@ app.returnToTitle = function() {
 
 //Function to initalize app
 app.init = function(){
+    $('#search-form').hide();
+    $('#random-art').hide();
     app.submitForm();
+    app.returnToTitle();
 };
 
 //Initalize the app.
@@ -137,13 +142,20 @@ $('#search-btn').on('click', app.showSearch)
 //generate btn should trigger ajax call
 $('#generate-btn').on('click', function(){
     app.getRandomArtworks();
+    $('#results').empty()
     $('#random-art').show();
 });
 
+$('#next-btn').on('click', function(){
+    app.getRandomArtworks();
+});
 
-$('#search-form').hide();
+app.scrollToResults = function() {
+    const results = $('#results')[0]
+    //Not working
+    results.scrollIntoView();
+}
 
-$('#random-art').hide();
 
 
 /*Issues:  

@@ -8,9 +8,11 @@
 //JS
 ☐ Clean up/ refactor
 ☐ Make sure namespace oraganization is consistent
-☐ When searching for artwork ensure previous entries are emptied first
+✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
+☐ Explore rendering random artwork dynamically with HTML in JS instead
 ☐ Maybe add a way to increase art display limit within form
 ☐ Loading screen to let data finish loading
 ☐ function to Auto scroll to content when loaded.
 ☐ Modal when clicking on artwork
-☐ add no image function to search results
+✔ add no image function to search results @done(21-11-14 19:37)
+☐ Function to return to the top of page.

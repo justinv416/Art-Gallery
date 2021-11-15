@@ -18,6 +18,9 @@
 }
 
 /* Global styling */
+html {
+    scroll-behavior: smooth;
+}
 
 footer {
     display: flex;
@@ -34,6 +37,8 @@ a {
 /* Main section */
 #main {
     height: 100vh;
+    display: flex;
+    align-items: center;
     /* background-color: yellowgreen; */
 }
 
@@ -48,7 +53,7 @@ a {
 
 .main-content {
     width: 50%;
-    height: 70%;
+    height: 100%;
     /* background-color: turquoise; */
     display: flex;
     flex-direction: column;
@@ -58,19 +63,22 @@ a {
 
 .main-content-heading {
     font-family: var(--pf-playfair);
+    padding-bottom: 100px;
     font-size: 50px;
 }
 
 .main-content-copy-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
+    padding-top: 100px;
 }
 
 .main-content-copy {
     font-family: var(--sf-open-sans);
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 25px;
+    line-height: 40px;
+    font-weight: 300;
 }
 
 .main-img-container {
@@ -78,8 +86,8 @@ a {
 }
 
 .main-button {
-    width: 200px;
-    height: 40px;
+    width: 40%;
+    height: 50px;
     background: none;
     font-size: 18px;
 }
@@ -92,7 +100,8 @@ a {
 
 .main-img {
     width: 100%;
-    padding: 50px;
+    height: auto;
+    padding: 50px 50px 0 50px;
 }
 
 /* Random art section */
@@ -137,6 +146,8 @@ a {
 .art-img {
     width: 50%;
     height: auto;
+    max-height: 900px;
+    padding: 100px;
 }
 
 .art-description {
@@ -199,10 +210,10 @@ a {
 
 .art-image {
     width: 50%;
+    height: auto;
+    padding: 50px;
     margin: 0 50px 50px 50px
 }
-
-
 
 .main-heading {
     color: var(--pc-text-white);
