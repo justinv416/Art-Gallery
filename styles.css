@@ -89,7 +89,7 @@ a {
 }
 
 .main-button {
-    width: 40%;
+    width: 20%;
     height: 50px;
     background: none;
     font-size: 18px;
@@ -117,14 +117,16 @@ a {
     /* background-color: lightcoral; */
 }
 
-#art-container {
-    /* background-color: violet; */
-    height: 100%;
-    width: 100%;
+.random-art-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    background-color: greenyellow;
+}
+
+.button-container {
+    display: flex;
     align-items: center;
-    margin: 0 50px;
+    justify-content: flex-end;
 }
 
 .details-container {

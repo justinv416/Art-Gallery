@@ -7,7 +7,7 @@ app.generateRandomNum = function(max) {
 };
 
 //Not a big fan of having a boolean as a parameter should refactor at some point
-app.displayArtTest = function(imgSrc, title, artist, date, classification, medium, origin, isRandom) {
+app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin, isRandom) {
     const artHTML = `
         <div id="results-container">
             <img src=https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg class="art-image"> 
@@ -48,7 +48,7 @@ app.getRandomArtworks = function() {
         //Store random number generator into a variable and pass the length of data array as a parameter.
         const randomNum = app.generateRandomNum(data.length)
         //Call displayArt function and pass data from response as parameters.
-        app.displayArtTest(
+        app.displayArt(
             data[randomNum].image_id, 
             data[randomNum].title,
             data[randomNum].artist_title,
@@ -82,7 +82,6 @@ app.searchArtworks = function() {
     }).then(function(response) {
         console.log(response.data)
         console.log($(this))
-        isRandom === false;
         const data = response.data;
         /*
             Foreach loop that will make an API call and pass in the id into another API call
@@ -95,7 +94,7 @@ app.searchArtworks = function() {
                 dataType: 'json'
             }).then(function(response){
                 const data = response.data;
-                app.displayArtTest(
+                app.displayArt(
                     data.image_id, 
                     data.title,
                     data.artist_title,
