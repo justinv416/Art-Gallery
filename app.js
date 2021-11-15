@@ -4,43 +4,35 @@ const app = {};
 //random number generator
 app.generateRandomNum = function(max) {
     return Math.floor(Math.random() * max)
-};
+}
 
-//Not a big fan of having a boolean as a parameter should refactor at some point
-app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin, isRandom) {
-    const artHTML = `
-        <div id="results-container">
-            <img src=https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg class="art-image"> 
-            <div class="art-description">
-                <div class="details-container">
-                    <h2 class="art-title">${title}</h2>
-                    <h2 class="artist-title">${artist}</h2>
-                    <h2 class="date">${date}</h2>
-                </div>
-                <div class="details-container">
-                    <h2 class="classification">${classification}</h2>
-                    <h2 class="medium">${medium}</h2>
-                    <h2 class="origin">${origin}</h2>
-                </div>
-            </div>
-        </div>
-    `; 
-    //Essentially a switch for rendering art.
-    if(isRandom === true) {
-        $('.random-output').html(artHTML)
-    } else {
-        $('#results').append(artHTML)
-    }
+//Funciton that will display art with parameters that will be passed in during the ajax call.
+app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin) {
+    $('.art-image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
+    $('.art-title').text(`${title}`);
+    $('.artist-title').text(`${artist}`);
+    $('.date').text(`${date}`);
+    $('.classification').text(`${classification}`);
+    $('.medium').text(`${medium}`);
+    $('.origin').text(`${origin}`);
 };
 
 //Function to make the ajax call to API and generate random artwork.
 app.getRandomArtworks = function() {
+    //For performance reasons this API is limited to 100 pages
+    const randomNum = app.generateRandomNum(100)
     $.ajax({
-        url: 'https://api.artic.edu/api/v1/artworks?&limit=100',
+        url: `https://api.artic.edu/api/v1/artworks?`,
         dataType: 'json',
-        method: 'GET'
+        method: 'GET',
+        data: {
+            page: `${randomNum}`,
+            limit: '1'
+        }
     //Once promise is fufilled....    
     }).then(function(response) {
+        //For dubugging purposes
+        console.log($(this))
         console.log(response)
         console.log(response.data)
         //Store response data into a variable called data.
@@ -55,12 +47,11 @@ app.getRandomArtworks = function() {
             data[randomNum].date_display,
             data[randomNum].classification_title,
             data[randomNum].medium_display,
-            data[randomNum].place_of_origin,
-            true
+            data[randomNum].place_of_origin
         );
         //Boolean that displays a 'no pictures icon' if no images are available.  
         if(data[randomNum].image_id === null) {
-            $('#img').attr('src', './Icons/no-pictures.png');
+            $('.art-image').attr('src', './Icons/no-pictures.png');
         };
        //Method to log error should API call fails. 
     }).fail(function(error){
@@ -94,16 +85,25 @@ app.searchArtworks = function() {
                 dataType: 'json'
             }).then(function(response){
                 const data = response.data;
-                app.displayArt(
-                    data.image_id, 
-                    data.title,
-                    data.artist_title,
-                    data.date_display,
-                    data.classification_title,
-                    data.medium_display,
-                    data.place_of_origin,
-                    false
-                );
+                const dataHTML = `
+                    <div id="results-container">
+                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image"> 
+                        <div class="art-description">
+                            <div class="details-container">
+                                <h2 class="art-title">${data.title}</h2>
+                                <h2 class="artist-title">${data.artist_title}</h2>
+                                <h3 class="date">${data.date_display}</h3>
+                            </div>
+                            <div class="details-container">
+                                <h3 class="classification">${data.classification_title}</h3>
+                                <h3 class="medium">${data.medium_display}</h3>
+                                <h3 class="origin">${data.place_of_origin}</h3>
+                            </div>
+                        </div>
+                    </div>
+                `
+                $('#results').append(dataHTML)
+                console.log(data)
             });
         });
     });
@@ -156,20 +156,4 @@ $('#generate-btn').on('click', function(){
 $('#next-btn').on('click', function(){
     app.getRandomArtworks();
 });
-
-//logs scroll postion on window scroll.
-$(window).on('scroll', function(){
-    console.log($(this).scrollTop())
-    app.addBorder();
-})
-
-//Working somewhat
-app.addBorder = function(){
-    if(window.scrollTop === 0){
-        $('.nav__main').removeClass('nav-border')
-    } else {
-        $('.nav__main').addClass('nav-border')
-    }
-}
-
 

@@ -22,12 +22,6 @@
                 <img src="./Icons/infinity.png" alt="" class="infinite-icon">
                 <h2 id="title-main">Art Unlimited</h2>
             </div>
-            <div class="links-container">
-                <form action="" class="search-form">
-                    <label for="#search-input">Search:</label>
-                    <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
-                </form> 
-            </div>
         </nav>
     </header>
 
@@ -57,27 +51,40 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="random-art">
-            <div class="random-art-container">
-                <div class="random-output"></div>
-                <div class="button-container">
-                    <button class="main-button" id="next-btn">Next Artwork</button>
-                    <a href="#main">Back to top</a>
+            <div id="art-container">
+                <img src="" alt="" class="art-image">
+                <div class="art-description">
+                    <div class="details-container">
+                        <h2><span class="art-title"></span></h2>
+                        <h2><span class="artist-title"></span></h2>
+                        <h3 class="date"></h3>
+                    </div>
+                    <div class="details-container">
+                        <h3 class="classification"></h3>
+                        <h3 class="medium"></h3>
+                        <h3 class="origin"></h3>
+                    </div>
+                    <div class="button-container">
+                        <button class="main-button" id="next-btn">Next Artwork</button>
+                    </div>                   
                 </div>
             </div>
         </section>
-        
+        <!-- Search Results -->
         <section id="results"></section>
 
-        <footer id="footer">
-            <p>Created by <a href="https://github.com/justinv416" target="blank" id="me-link">Justin Vien</a> at <a href="junocollege.com" target="blank" id="juno-link">Juno College</a></p>
+    </main>
+    
+    <footer id="footer">
+        <p>Created by <a href="https://github.com/justinv416" target="blank" id="me-link">Justin Vien</a> at <a href="junocollege.com" target="blank" id="juno-link">Juno College</a></p>
+        <div class="misc-links">
             <a href="https://www.artic.edu" target="blank">Visit the Art Insititue of Chicago</a>
             <a href="#main">Back to top</a>
-        </footer>
-
-    </main>
-
+        </div>
+    </footer>
+    
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

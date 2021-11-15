@@ -3,18 +3,16 @@
 
 //CSS
 ☐ Cleanup/refactor
-☐ footer causing z-index issues
-☐ Make app completely responsive
+✔ footer causing z-index issues @done(21-11-15 15:13)
 
 //JS
 ☐ Clean up/ refactor
 ☐ Make sure namespace oraganization is consistent
 ✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
-☐ Explore rendering random artwork dynamically with HTML in JS instead
+✘ Explore rendering random artwork dynamically with HTML in JS instead @cancelled(21-11-15 15:14)
 ☐ Maybe add a way to increase art display limit within form
 ☐ Loading screen to let data finish loading
 ☐ function to Auto scroll to content when loaded.
 ☐ Modal when clicking on artwork
 ✔ add no image function to search results @done(21-11-14 19:37)
-☐ Add arrow icon and function to return to the top of page.
-☐ Add pages to display more artwork
+✔ Function to return to the top of page. @done(21-11-15 15:13)
