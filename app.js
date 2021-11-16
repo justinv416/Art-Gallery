@@ -8,13 +8,13 @@ app.generateRandomNum = function(max) {
 
 //Funciton that will display art with parameters that will be passed in during the ajax call.
 app.displayArt = function(imgSrc, title, artist, date, classification, medium, origin) {
-    $('.art-image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
-    $('.art-title').text(`${title}`);
-    $('.artist-title').text(`${artist}`);
-    $('.date').text(`${date}`);
-    $('.classification').text(`${classification}`);
-    $('.medium').text(`${medium}`);
-    $('.origin').text(`${origin}`);
+    $('.art__image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
+    $('.art__description--title').text(`${title}`);
+    $('.art__description--artist').text(`${artist}`);
+    $('.art__description--date').text(`${date}`);
+    $('.art__description--classification').text(`${classification}`);
+    $('.art__description--medium').text(`${medium}`);
+    $('.art__description--origin').text(`${origin}`);
 };
 
 //Function to make the ajax call to API and generate random artwork.
@@ -27,7 +27,7 @@ app.getRandomArtworks = function() {
         method: 'GET',
         data: {
             page: `${randomNum}`,
-            limit: '1'
+            limit: '10'
         }
     //Once promise is fufilled....    
     }).then(function(response) {
@@ -51,7 +51,7 @@ app.getRandomArtworks = function() {
         );
         //Boolean that displays a 'no pictures icon' if no images are available.  
         if(data[randomNum].image_id === null) {
-            $('.art-image').attr('src', './Icons/no-pictures.png');
+            $('.art__image').attr('src', './Icons/no-pictures.png');
         };
        //Method to log error should API call fails. 
     }).fail(function(error){
@@ -87,17 +87,17 @@ app.searchArtworks = function() {
                 const data = response.data;
                 const dataHTML = `
                     <div id="results-container">
-                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art-image"> 
-                        <div class="art-description">
-                            <div class="details-container">
-                                <h2 class="art-title">${data.title}</h2>
-                                <h2 class="artist-title">${data.artist_title}</h2>
-                                <h3 class="date">${data.date_display}</h3>
+                        <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art__image"> 
+                        <div class="art__description">
+                            <div class="art__description--details">
+                                <h2 class="art__description--title">${data.title}</h2>
+                                <h2 class="art__description--artist">${data.artist_title}</h2>
+                                <h3 class="art__description--date">${data.date_display}</h3>
                             </div>
-                            <div class="details-container">
-                                <h3 class="classification">${data.classification_title}</h3>
-                                <h3 class="medium">${data.medium_display}</h3>
-                                <h3 class="origin">${data.place_of_origin}</h3>
+                            <div class="art__description--details">
+                                <h3 class="art__description--classification">${data.classification_title}</h3>
+                                <h3 class="art__description--medium">${data.medium_display}</h3>
+                                <h3 class="art__description--origin">${data.place_of_origin}</h3>
                             </div>
                         </div>
                     </div>
@@ -128,32 +128,33 @@ app.returnToTitle = function() {
     });
 };
 
+//Shows search form on click.
+app.showSearch = function() {
+    $('#search-form').show();
+};
+
 //Function to initalize app
 app.init = function(){
     $('#search-form').hide();
-    $('#random-art').hide();
+    $('#random__art').hide();
     app.submitForm();
     app.returnToTitle();
+    $('#next-btn').on('click', function(){
+        app.getRandomArtworks();
+    });
+    $('#generate-btn').on('click', function(){
+        app.getRandomArtworks();
+        $('#results').empty()
+        $('#random__art').show();
+    });
+    $('#search-btn').on('click', app.showSearch)
 };
 
 //Initalize the app.
 app.init();
 
-//need to write a function that will show form on click
-app.showSearch = function() {
-    $('#search-form').show();
-};
 
-$('#search-btn').on('click', app.showSearch)
 
-//generate btn should trigger ajax call
-$('#generate-btn').on('click', function(){
-    app.getRandomArtworks();
-    $('#results').empty()
-    $('#random-art').show();
-});
 
-$('#next-btn').on('click', function(){
-    app.getRandomArtworks();
-});
+
 

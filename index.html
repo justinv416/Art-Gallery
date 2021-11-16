@@ -15,59 +15,59 @@
     <title>Art Unlimited</title>
 </head>
 <body>
-    
+    <!-- Header/navigation -->
     <header id="header">
         <nav class="nav__main">
-            <div class="logo">
-                <img src="./Icons/infinity.png" alt="" class="infinite-icon">
-                <h2 id="title-main">Art Unlimited</h2>
+            <div class="nav__main--logo">
+                <img src="./Icons/infinity.png" alt="An icon depicting an infinity symbol" class="nav__main--logo-icon">
+                <h2 class="nav__main--title">Art Unlimited</h2>
             </div>
         </nav>
     </header>
 
     <main>
-
+        <!-- Home section -->
         <section id="main">
-            <div class="main-content-container">
-                <div class="main-content">
-                    <div class="main-content-copy-container">
-                        <h1 class="main-content-heading">Limitless inspiration.</h1>
-                        <p class="main-content-copy">
+            <div class="main__content--container">
+                <div class="main__content">
+                    <div class="main__content__copy--container">
+                        <h1 class="main__content__copy--heading">Limitless inspiration.</h1>
+                        <p class="main__content__copy">
                             Powered by the Art Institute of Chicago's API, 
                             Art Unlimited is a website that allows users to generate random artworks 
                             for daily inspiration or search for artworks from their extensive collection. 
                         </p>
                     </div>
-                    <div class="main-button-container">
-                        <a href="#random-art"><button class="main-button" id="generate-btn">Generate Art</button></a>
-                        <button class="main-button" id="search-btn">Search for Art</button>
+                    <div class="main__button--container">
+                        <a href="#random__art"><button class="main__button" id="generate-btn">Generate Art</button></a>
+                        <button class="main__button" id="search-btn">Search for Art</button>
                     </div>
                     <form action="" id="search-form">
                         <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
                     </form> 
                 </div>
-                <div class="main-img-container">
-                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="" class="main-img">
+                <div class="main__img--container">
+                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="" class="main__img">
                 </div>
             </div>
         </section>
-        
-        <section id="random-art">
-            <div id="art-container">
-                <img src="" alt="" class="art-image">
-                <div class="art-description">
-                    <div class="details-container">
-                        <h2><span class="art-title"></span></h2>
-                        <h2><span class="artist-title"></span></h2>
-                        <h3 class="date"></h3>
+        <!-- Randomly generated art section -->
+        <section id="random__art">
+            <div class="art__container">
+                <img src="" alt="An image of art" class="art__image">
+                <div class="art__description">
+                    <div class="art__description--details">
+                        <h2><span class="art__description--title"></span></h2>
+                        <h2><span class="art__description--artist"></span></h2>
+                        <h3 class="art__description--date"></h3>
                     </div>
-                    <div class="details-container">
-                        <h3 class="classification"></h3>
-                        <h3 class="medium"></h3>
-                        <h3 class="origin"></h3>
+                    <div class="art__description--details">
+                        <h3 class="art__description--classification"></h3>
+                        <h3 class="art__description--medium"></h3>
+                        <h3 class="art__description--origin"></h3>
                     </div>
-                    <div class="button-container">
-                        <button class="main-button" id="next-btn">Next Artwork</button>
+                    <div class="art__container--button">
+                        <button class="main__button" id="next-btn">Next Artwork</button>
                     </div>                   
                 </div>
             </div>
@@ -76,12 +76,12 @@
         <section id="results"></section>
 
     </main>
-    
+    <!-- Footer -->
     <footer id="footer">
         <p>Created by <a href="https://github.com/justinv416" target="blank" id="me-link">Justin Vien</a> at <a href="junocollege.com" target="blank" id="juno-link">Juno College</a></p>
-        <div class="misc-links">
-            <a href="https://www.artic.edu" target="blank">Visit the Art Insititue of Chicago</a>
-            <a href="#main">Back to top</a>
+        <div class="misc__links">
+            <a href="https://www.artic.edu" target="blank" class="misc__links--artic">Visit the Art Insititue of Chicago</a>
+            <a href="#main" class="misc__links--btt">Back to top</a>
         </div>
     </footer>
     
