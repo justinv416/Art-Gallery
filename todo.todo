@@ -10,10 +10,10 @@
 ☐ Make sure namespace oraganization is consistent
 ✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
 ✘ Explore rendering random artwork dynamically with HTML in JS instead @cancelled(21-11-15 15:14)
-☐ Maybe add a way to increase art display limit within form
-☐ Loading screen to let data finish loading @started(21-11-16 21:00)
+☐ Maybe add a way to increase art display limit within form i.e. select and option elements. 
+✔ Loading screen to let data finish loading @done(21-11-17 17:28)
 ☐ function to Auto scroll to content when loaded.
-☐ Modal when clicking on artwork
+✔ Modal when clicking on artwork @done(21-11-17 19:02)
 ✔ add no image function to search results @done(21-11-14 19:37)
 ✔ Function to return to the top of page. @done(21-11-15 15:13)
 ☐ Add pagination to search results

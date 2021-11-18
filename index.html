@@ -43,7 +43,10 @@
                         <button class="main__button" id="search-btn">Search for Art</button>
                     </div>
                     <form action="" id="search-form">
-                        <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
+                        <div class="input-container">
+                            <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
+                            <img src="./Icons/close.png" alt="" class="close-icon">
+                        </div>
                     </form> 
                 </div>
                 <div class="main__img--container">
@@ -53,8 +56,14 @@
         </section>
         <!-- Randomly generated art section -->
         <section id="random__art">
+            <div class="loading-animation">
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
             <div class="art__container">
-                <img src="" alt="An image of art" class="art__image">
+                <div class="image__container">
+                    <img src="" alt="An image of art" class="art__image" id="art__image--random">
+                    <figcaption>Click image to enlarge</figcaption>
+                </div>
                 <div class="art__description">
                     <div class="art__description--details">
                         <h2><span class="art__description--title"></span></h2>
@@ -68,9 +77,13 @@
                     </div>
                     <div class="art__container--button">
                         <button class="main__button" id="next-btn">Next Artwork</button>
-                    </div>                   
-                </div>
+                    </div>                
+                </div> 
             </div>
+            <div class="modal">
+                <img src="./Icons/close-white.png" alt="" class="close-icon" id="close__icon--modal">
+                <img src="" alt="An image of art" class="art__image" id="art__image--modal">
+            </div>  
         </section>
         <!-- Search Results -->
         <section id="results"></section>

@@ -18,6 +18,7 @@ app.displayRandomArt = function(imgSrc, title, artist, date, classification, med
     $('.art__description--origin').text(`${origin}`);
 };
 
+//Function that generates HTML to display art based on the search. 
 app.displaySearchArt = function(data) {
     const dataHTML = `
         <div id="results-container">
@@ -42,17 +43,19 @@ app.displaySearchArt = function(data) {
 //Function to make the ajax call to API and generate random artwork.
 app.getRandomArtworks = function() {
     //For performance reasons this API is limited to 100 pages
-    const randomArtNum = app.generateRandomNum(100)
+    const randomPageNum = app.generateRandomNum(100);
+    $('.loading-animation').show();
     $.ajax({
         url: `https://api.artic.edu/api/v1/artworks?`,
         dataType: 'json',
         method: 'GET',
         data: {
-            page: `${randomArtNum}`,
+            page: `${randomPageNum}`,
             limit: '50'
         }
     //Once promise is fufilled....    
     }).then(function(response) {
+        $('.loading-animation').hide();
         //For dubugging purposes
         console.log($(this))
         console.log(response)
@@ -60,19 +63,19 @@ app.getRandomArtworks = function() {
         //Store response data into a variable called data.
         const data = response.data;
         //Store random number generator into a variable and pass the length of data array as a parameter.
-        const randomNum = app.generateRandomNum(data.length)
+        const randomArtNum = app.generateRandomNum(data.length);
         //Call displayRandomArt function and pass data from response as parameters.
         app.displayRandomArt(
-            data[randomNum].image_id, 
-            data[randomNum].title,
-            data[randomNum].artist_title,
-            data[randomNum].date_display,
-            data[randomNum].classification_title,
-            data[randomNum].medium_display,
-            data[randomNum].place_of_origin
+            data[randomArtNum].image_id, 
+            data[randomArtNum].title,
+            data[randomArtNum].artist_title,
+            data[randomArtNum].date_display,
+            data[randomArtNum].classification_title,
+            data[randomArtNum].medium_display,
+            data[randomArtNum].place_of_origin
         );
         //Boolean that displays a 'no pictures icon' if no images are available.  
-        if(data[randomNum].image_id === null) {
+        if(data[randomArtNum].image_id === null) {
             $('.art__image').attr('src', './Icons/no-pictures.png');
         };
        //Method to log error should API call fails. 
@@ -138,18 +141,50 @@ app.btnControls = function() {
     $('#search-btn').on('click', function() {
         $('#search-form').show();
     });
+    $('.close-icon').on('click', function(){
+        $('#search-form').hide();
+    });
 }
 
 //Function to initalize app
 app.init = function(){
+    $('.modal').hide();
     $('#search-form').hide();
     $('#random__art').hide();
+    $('.loading-animation').hide();
     app.submitForm();
     app.btnControls()
 };
 
 //Initalize the app.
+$(document).ready(function(){
+
+})
 app.init();
+
+$('#art__image--random').on('click', function() {
+    console.log($(this).attr('src'))
+    $('.art__container').hide();
+    $('.modal').show();
+    // const overlay = `
+    //     <div class="modal">
+    //         <img src="./Icons/close-white.png" alt="" class="close-icon" id="close__icon--modal">
+    //         <img src="${$(this).attr('src')}" alt="An image of art" class="art__image" id="art__image--random">
+    //     </div>
+    // `
+    // $('#random__art').append(overlay)
+    $('#art__image--random').attr('src', $(this).attr('src'))
+    $('#header').hide()
+    $('footer').hide()
+});
+
+$('#close__icon--modal').on('click', function() {
+    console.log('clicked')
+    $('.art__container').show();
+    $('#header').show()
+    $('footer').show()
+    $('.modal').hide();
+})
 
 
 

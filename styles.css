@@ -49,6 +49,7 @@ a {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    z-index: 2;
 }
 
 .nav__main--logo {
@@ -87,11 +88,11 @@ a {
 
 .main__content {
     width: 50%;
-    height: 80%;
+    height: 100%;
     /* background-color: turquoise; */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding: 50px;
 }
 
@@ -99,7 +100,8 @@ a {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-top: 100px;
+    margin: 0 0 50px 0;
+    /* background-color: #EA593E; */
 }
 
 .main__content__copy--heading {
@@ -125,6 +127,10 @@ a {
     padding: 0 50px 0 50px;
 }
 
+.main__button--container {
+    margin-bottom: 50px;
+}
+
 .main__button {
     width: 40%;
     height: 50px;
@@ -139,9 +145,26 @@ a {
 }
 
 /* Form */
+#search-form {
+    position: relative;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.close-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+
 #search-input {
-    width: 500px;
+    width: 90%;
     height: 30px;
+    padding: 15px;
 }
 
 /* Random art section */
@@ -163,15 +186,19 @@ a {
     align-items: center;
 }
 
+.img__container {
+    width: 100%;
+}
+
 .art__container--button {
     margin-top: 30px;
 }
 
-.art__image {
-    width: 40%;
+#art__image--random {
+    width: 100%;
     height: auto;
     max-height: 900px;
-    padding: 50px 50px;
+    padding: 50px 50px 0 50px;
     /* background-color: yellowgreen; */
 }
 
@@ -186,7 +213,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    width: 100%;
+    width: 50%;
     /* background-color: yellow; */
     height: 50%;
     /* padding: 50px; */
@@ -305,6 +332,7 @@ a {
     left: 0;
     background-color: var(--pc-text);
     animation: grow .5s forwards;
+    opacity: .5;
 }
 
 /* Animations */
@@ -314,4 +342,89 @@ a {
     } to {
         width: 100%;
     }
+}
+
+/* Loading screen */
+.loading-animation {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--pc-text-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 2; */
+    position: absolute;
+    padding: 50px 0;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #000;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #000 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.modal {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.modal .close-icon {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+
+#art__image--modal {
+    width: auto;
+    height: auto;
+    padding: 50px;
+}
+
+.image__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    margin-top: 10px;
 }
