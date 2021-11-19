@@ -152,6 +152,7 @@ app.btnControls = function() {
 
     $('.close-icon').on('click', function(){
         $('#search__form').hide();
+        $('#results__link').hide();
     });
 };
 

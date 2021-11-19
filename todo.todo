@@ -5,7 +5,7 @@
 //CSS
 ☐ Cleanup/refactor/consolidate
 ✔ footer causing z-index issues @done(21-11-15 15:13)
-☐ figcaption hidden on larger images, padding/margin issues, investigate. 
+✔ figcaption hidden on larger images, padding/margin issues, investigate. @done(21-11-19 16:40)
 ☐ Add a dark mode (because, why not?). 
 
 //JS
@@ -21,4 +21,3 @@
 ✔ Function to return to the top of page. @done(21-11-15 15:13)
 ☐ Add pagination to search results to allow for better performance and more results. 
 ☐ Maybe convert the whole thing to ReactJS in the future to make it a true SPA.
-☐ GSAP animations 
