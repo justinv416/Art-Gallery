@@ -128,19 +128,22 @@ app.submitForm = function() {
     }); 
 };
 
-//Event listeners for buttons on page.
+//Event listeners for buttons/icons on page.
 app.btnControls = function() {
     $('#next-btn').on('click', function(){
         app.getRandomArtworks();
     });
+
     $('#generate-btn').on('click', function(){
         app.getRandomArtworks();
         $('#results').empty()
         $('#random__art').show();
     });
+
     $('#search-btn').on('click', function() {
         $('#search-form').show();
     });
+
     $('.close-icon').on('click', function(){
         $('#search-form').hide();
     });
@@ -151,7 +154,7 @@ app.modalControls = function() {
     $('#art__image--random').on('click', function() {
         $('.art__container').hide();
         $('.modal').show();
-        $('#art__image--random').attr('src', $(this).attr('src'));
+        $('#art__image--modal-random').attr('src', $(this).attr('src'));
         $('#header').hide();
         $('footer').hide();
         $('body').css('overflow', 'hidden');
@@ -163,6 +166,22 @@ app.modalControls = function() {
         $('footer').show();
         $('.modal').hide();
         $('body').css('overflow', 'auto');
+    });
+
+    //Event Delegation for dynamically generated html
+    $(document).on('click', '#close__icon--modal-search', function() {
+        $('#header').show();
+        $('footer').show();
+        $('.modal').hide();
+        $('body').css('overflow', 'auto');
+    });
+
+    $(document).on('click', '.art__image--search', function() {
+        $('.modal').show();
+        $('#art__image--modal-search').attr('src', $(this).attr('src'));
+        $('#header').hide();
+        $('footer').hide();
+        $('body').css('overflow', 'hidden');
     });
 };
 
@@ -177,7 +196,7 @@ app.init = function(){
     app.modalControls();
 };
 
-//Initalize the app.
+//Initalize the app once the Document object is ready.
 $(document).ready(function(){
     app.init();
 });
