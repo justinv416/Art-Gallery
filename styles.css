@@ -22,6 +22,15 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    color: var(--pc-text);
+    text-decoration: none;
+}
+
+figcaption {
+    margin-top: 10px;
+}
+
 footer {
     display: flex;
     width: 100%;
@@ -33,11 +42,6 @@ footer {
     font-size: 18px;
     position: fixed;
     bottom: 0;
-}
-
-a {
-    color: var(--pc-text);
-    text-decoration: none;
 }
 
 /* Navigation */
@@ -335,7 +339,7 @@ a {
     opacity: .5;
 }
 
-/* Animations */
+/* Animation for footer links */
 @keyframes grow {
     from {
         width: 0;
@@ -398,11 +402,15 @@ a {
     }
 }
 
+/* Modal for artwork */
 .modal {
-    height: 100vh;
+    height: auto;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
-    position: absolute;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
 }
@@ -411,6 +419,12 @@ a {
     position: absolute;
     right: 0;
     margin: 10px;
+}
+
+.modal .close-icon:hover {
+    width: 25px;
+    height: 25px;
+    transition: all .5s;
 }
 
 #art__image--modal {
@@ -425,6 +439,3 @@ a {
     align-items: center;
 }
 
-figcaption {
-    margin-top: 10px;
-}

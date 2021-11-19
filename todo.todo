@@ -1,13 +1,15 @@
 //HTML
 ✔ Clean up/ refactor @done(21-11-16 21:01)
+☐ Add modal/figcaption to search results
 
 //CSS
 ☐ Cleanup/refactor
 ✔ footer causing z-index issues @done(21-11-15 15:13)
+☐ figcaption hidden on larger images, padding/margin issues. 
 
 //JS
 ☐ Clean up/ refactor
-☐ Make sure namespace oraganization is consistent
+✔ Make sure namespace oraganization is consistent @done(21-11-18 18:28)
 ✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
 ✘ Explore rendering random artwork dynamically with HTML in JS instead @cancelled(21-11-15 15:14)
 ☐ Maybe add a way to increase art display limit within form i.e. select and option elements. 

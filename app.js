@@ -123,7 +123,7 @@ app.submitForm = function() {
     form.on('submit', function(event){
         event.preventDefault();
         console.log($('#search-input').val())
-        $('#random-art').hide();
+        $('#random__art').hide();
         app.searchArtworks();
     }); 
 };
@@ -144,7 +144,27 @@ app.btnControls = function() {
     $('.close-icon').on('click', function(){
         $('#search-form').hide();
     });
-}
+};
+
+//Function to control image modal
+app.modalControls = function() {
+    $('#art__image--random').on('click', function() {
+        $('.art__container').hide();
+        $('.modal').show();
+        $('#art__image--random').attr('src', $(this).attr('src'));
+        $('#header').hide();
+        $('footer').hide();
+        $('body').css('overflow', 'hidden');
+    });
+    
+    $('#close__icon--modal').on('click', function() {
+        $('.art__container').show();
+        $('#header').show();
+        $('footer').show();
+        $('.modal').hide();
+        $('body').css('overflow', 'auto');
+    });
+};
 
 //Function to initalize app
 app.init = function(){
@@ -154,37 +174,14 @@ app.init = function(){
     $('.loading-animation').hide();
     app.submitForm();
     app.btnControls()
+    app.modalControls();
 };
 
 //Initalize the app.
 $(document).ready(function(){
-
-})
-app.init();
-
-$('#art__image--random').on('click', function() {
-    console.log($(this).attr('src'))
-    $('.art__container').hide();
-    $('.modal').show();
-    // const overlay = `
-    //     <div class="modal">
-    //         <img src="./Icons/close-white.png" alt="" class="close-icon" id="close__icon--modal">
-    //         <img src="${$(this).attr('src')}" alt="An image of art" class="art__image" id="art__image--random">
-    //     </div>
-    // `
-    // $('#random__art').append(overlay)
-    $('#art__image--random').attr('src', $(this).attr('src'))
-    $('#header').hide()
-    $('footer').hide()
+    app.init();
 });
 
-$('#close__icon--modal').on('click', function() {
-    console.log('clicked')
-    $('.art__container').show();
-    $('#header').show()
-    $('footer').show()
-    $('.modal').hide();
-})
 
 
 
