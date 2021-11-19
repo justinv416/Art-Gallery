@@ -6,8 +6,9 @@ app.generateRandomNum = function(max) {
     return Math.floor(Math.random() * max)
 }
 
-//Function that will display art with parameters that will be passed in during the ajax call.
-//Note: might consolidate this with displaySearchArt function in the future. 
+/*Function that will display art with parameters that will be passed in during the ajax call.
+Note: might consolidate this with displaySearchArt function in the future, 
+next btn currently preventing me from doing so.*/ 
 app.displayRandomArt = function(imgSrc, title, artist, date, classification, medium, origin) {
     $('.art__image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
     $('.art__description--title').text(`${title}`);
@@ -22,7 +23,10 @@ app.displayRandomArt = function(imgSrc, title, artist, date, classification, med
 app.displaySearchArt = function(data) {
     const dataHTML = `
         <div id="results-container">
-            <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art__image--search"> 
+            <div class="image__container--search">
+                <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art__image--search"> 
+                <figcaption>Click image to enlarge</figcaption>
+            </div>
             <div class="art__description">
                 <div class="art__description--details">
                     <h2 class="art__description--title">${data.title}</h2>
@@ -92,7 +96,7 @@ app.searchArtworks = function() {
         dataType: 'json',
         method: 'GET', 
         data: {
-            q: `${$('#search-input').val()}`,
+            q: `${$('#search__form--input').val()}`,
             //Limit currently set at 20 for performance reasons, will add pagination in the future
             limit: '20'
         }
@@ -122,7 +126,7 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
-        console.log($('#search-input').val())
+        $('#results').empty();
         $('#random__art').hide();
         app.searchArtworks();
     }); 
@@ -134,18 +138,18 @@ app.btnControls = function() {
         app.getRandomArtworks();
     });
 
-    $('#generate-btn').on('click', function(){
+    $('#main__button--generate').on('click', function(){
         app.getRandomArtworks();
         $('#results').empty()
         $('#random__art').show();
     });
 
-    $('#search-btn').on('click', function() {
-        $('#search-form').show();
+    $('#main__button--search').on('click', function() {
+        $('#search__form').show();
     });
 
     $('.close-icon').on('click', function(){
-        $('#search-form').hide();
+        $('#search__form').hide();
     });
 };
 
@@ -169,32 +173,40 @@ app.modalControls = function() {
     });
 
     //Event Delegation for dynamically generated html
-    $(document).on('click', '#close__icon--modal-search', function() {
-        $('#header').show();
-        $('footer').show();
-        $('.modal').hide();
-        $('body').css('overflow', 'auto');
-    });
-
     $(document).on('click', '.art__image--search', function() {
-        $('.modal').show();
+        console.log('clicked')
         $('#art__image--modal-search').attr('src', $(this).attr('src'));
+        $('#modal__search').show();
         $('#header').hide();
         $('footer').hide();
         $('body').css('overflow', 'hidden');
     });
+    
+    $(document).on('click', '#close__icon--modal-search', function() {
+        $('#header').show();
+        $('footer').show();
+        $('#modal__search').hide();
+        $('body').css('overflow', 'auto');
+    });
 };
+
+app.hideModal = function() {
+    $('#modal__search').hide();
+    $('#modal__random').hide();
+}
 
 //Function to initalize app
 app.init = function(){
-    $('.modal').hide();
-    $('#search-form').hide();
+    $('#search__form').hide();
     $('#random__art').hide();
     $('.loading-animation').hide();
+    app.hideModal()
     app.submitForm();
-    app.btnControls()
+    app.btnControls();
     app.modalControls();
 };
+
+
 
 //Initalize the app once the Document object is ready.
 $(document).ready(function(){

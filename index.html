@@ -30,26 +30,26 @@
         <section id="main">
             <div class="main__content--container">
                 <div class="main__content">
-                    <div class="main__content__copy--container">
-                        <h1 class="main__content__copy--heading">Limitless inspiration.</h1>
-                        <p class="main__content__copy">
+                    <div class="main__content--copy">
+                        <h1>Limitless inspiration.</h1>
+                        <p>
                             Powered by the Art Institute of Chicago's API, 
                             Art Unlimited is a website that allows users to generate random artworks 
                             for daily inspiration or search for artworks from their extensive collection. 
                         </p>
                     </div>
-                    <div class="main__button--container">
-                        <a href="#random__art"><button class="main__button" id="generate-btn">Generate Art</button></a>
-                        <button class="main__button" id="search-btn">Search for Art</button>
+                    <div id="main__button--container">
+                        <a href="#random__art"><button class="button" id="main__button--generate">Generate Art</button></a>
+                        <button class="button" id="main__button--search">Search for Art</button>
                     </div>
-                    <form action="#results" id="search-form">
+                    <form action="" id="search__form">
                         <div class="input-container">
-                            <input type="text" placeholder="Search for artwork e.g. Monet" id="search-input">
-                            <img src="./Icons/close.png" alt="" class="close-icon">
+                            <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
+                            <img src="./Icons/close.png" alt="A close icon" class="close-icon">
                         </div>
                     </form> 
                 </div>
-                <div class="main__img--container">
+                <div id="main__img--container">
                     <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="" class="main__img">
                 </div>
             </div>
@@ -57,6 +57,7 @@
 
         <!-- Randomly generated art section -->
         <section id="random__art">
+            <!-- loading animation -->
             <div class="loading-animation">
                 <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
             </div>
@@ -81,35 +82,41 @@
                     </div>                
                 </div> 
             </div>
-            <div class="modal">
+            <div class="modal" id="modal__random">
                 <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal" title="Click to close">
                 <img src="" alt="An image of art" class="art__image" id="art__image--modal-random">
             </div>  
         </section>
 
         <!-- Search Results -->
-        <section id="results">
-            <div class="modal">
-                <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal-search" title="Click to close">
-                <img src="" alt="An image of art" class="art__image" id="art__image--modal-search">
-            </div>  
-        </section>
+        <section id="results"></section>
+
+        <!-- modal -->
+        <div class="modal" id="modal__search">
+            <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal-search" title="Click to close">
+            <img src="" alt="An image of art" class="art__image" id="art__image--modal-search">
+        </div>  
 
     </main>
+
     <!-- Footer -->
     <footer id="footer">
-        <p>Created by <a href="https://github.com/justinv416" target="blank" id="me-link">Justin Vien</a> at <a href="https://www.junocollege.com" target="blank" id="juno-link">Juno College</a></p>
+        <p>Created by <a href="https://github.com/justinv416" target="blank" class="footer__link" id="me-link">Justin Vien</a> at 
+            <a href="https://www.junocollege.com" target="blank" class="footer__link" id="juno-link">Juno College</a>
+        </p>
         <div class="misc__links">
-            <a href="https://www.artic.edu" target="blank" class="misc__links--artic">Visit the Art Insititue of Chicago</a>
-            <a href="#main" class="misc__links--btt">Back to top</a>
+            <a href="https://www.artic.edu" target="blank" class="footer__link" id="misc__links--artic">Visit the Art Insititue of Chicago</a>
+            <a href="#main" class="footer__link" id="misc__links--btt">Back to top</a>
         </div>
     </footer>
-    
+
+    <!-- Scripts -->
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
     <script src="app.js"></script>       
+
 </body>
 </html>
