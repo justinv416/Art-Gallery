@@ -104,7 +104,6 @@ footer {
     flex-direction: column;
     width: 100%;
     margin: 0 0 50px 0;
-    /* background-color: #EA593E; */
 }
 
 .main__content--copy h1 {
@@ -141,10 +140,22 @@ footer {
     font-size: 18px;
 }
 
-.main__button:hover {
+.button:hover {
     background-color: var(--pc-text);
     color: var(--pc-text-white);
     transition: all .5s;
+}
+
+#results__link {
+    font-size: 20px;
+    position: relative;
+}
+
+#loading-container {
+    background-color: var(--tc-juno);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 /* Form */

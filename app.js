@@ -1,14 +1,14 @@
 //Declares variable called app as an empty object. 
 const app = {};
 
-//random number generator
+//Function that generates and returns a random number.
 app.generateRandomNum = function(max) {
     return Math.floor(Math.random() * max)
 }
 
 /*Function that will display art with parameters that will be passed in during the ajax call.
 Note: might consolidate this with displaySearchArt function in the future, 
-next btn currently preventing me from doing so.*/ 
+next artwork button currently preventing me from doing so.*/ 
 app.displayRandomArt = function(imgSrc, title, artist, date, classification, medium, origin) {
     $('.art__image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
     $('.art__description--title').text(`${title}`);
@@ -48,6 +48,7 @@ app.displaySearchArt = function(data) {
 app.getRandomArtworks = function() {
     //For performance reasons this API is limited to 100 pages
     const randomPageNum = app.generateRandomNum(100);
+    //Show loading animation while data is being fetched. 
     $('.loading-animation').show();
     $.ajax({
         url: `https://api.artic.edu/api/v1/artworks?`,
@@ -59,11 +60,8 @@ app.getRandomArtworks = function() {
         }
     //Once promise is fufilled....    
     }).then(function(response) {
+        //Hide loading animation.
         $('.loading-animation').hide();
-        //For dubugging purposes
-        console.log($(this))
-        console.log(response)
-        console.log(response.data)
         //Store response data into a variable called data.
         const data = response.data;
         //Store random number generator into a variable and pass the length of data array as a parameter.
@@ -90,6 +88,7 @@ app.getRandomArtworks = function() {
 
 //Function to search for and retrun artwork. Very messy? Should refactor at some point. 
 app.searchArtworks = function() {
+    $('#loading-animation-search').show();
     $.ajax({
         //This call will return an array of ids that will represent the respective artwork.
         url: 'https://api.artic.edu/api/v1/artworks/search?',
@@ -101,21 +100,21 @@ app.searchArtworks = function() {
             limit: '20'
         }
     }).then(function(response) {
-        console.log(response.data)
-        console.log($(this))
-        const data = response.data;
+        const arrayOfIds = response.data;
         /*
             Foreach loop that will make an API call and pass in the id into another API call
             and fetch the JSON needed to display the artwork and its information. Each artwork 
             is then dynamically rendered onto the document with the HTML string bwlow.
         */
-        data.forEach(function(data){
+        arrayOfIds.forEach(function(item){
             $.ajax({
-                url: `https://api.artic.edu/api/v1/artworks/${data.id}`,
+                url: `https://api.artic.edu/api/v1/artworks/${item.id}`,
                 dataType: 'json'
             }).then(function(response){
-                const data = response.data;
-                app.displaySearchArt(data);
+                $('#loading-animation-search').hide();
+                $('#results__link').show();
+                const artData = response.data;
+                app.displaySearchArt(artData);
             });
         });
     });
@@ -153,22 +152,38 @@ app.btnControls = function() {
     });
 };
 
+//Function to hide header/footer elements.
+app.hideNavigation = function() {
+    $('#header').hide();
+    $('footer').hide();
+}
+
+//Function to show header/footer elements.
+app.showNavigation = function() {
+    $('#header').show();
+    $('footer').show();
+}
+
+//Function to hide modals.
+app.hideModal = function() {
+    $('#modal__search').hide();
+    $('#modal__random').hide();
+}
+
 //Function to control image modal
 app.modalControls = function() {
     $('#art__image--random').on('click', function() {
         $('.art__container').hide();
-        $('.modal').show();
+        app.hideNavigation();
+        $('#modal__random').show();
         $('#art__image--modal-random').attr('src', $(this).attr('src'));
-        $('#header').hide();
-        $('footer').hide();
         $('body').css('overflow', 'hidden');
     });
     
     $('#close__icon--modal').on('click', function() {
+        $('#modal__random').hide();
         $('.art__container').show();
-        $('#header').show();
-        $('footer').show();
-        $('.modal').hide();
+        app.showNavigation();
         $('body').css('overflow', 'auto');
     });
 
@@ -177,36 +192,27 @@ app.modalControls = function() {
         console.log('clicked')
         $('#art__image--modal-search').attr('src', $(this).attr('src'));
         $('#modal__search').show();
-        $('#header').hide();
-        $('footer').hide();
         $('body').css('overflow', 'hidden');
     });
     
     $(document).on('click', '#close__icon--modal-search', function() {
-        $('#header').show();
-        $('footer').show();
-        $('#modal__search').hide();
+        app.hideModal();
         $('body').css('overflow', 'auto');
     });
 };
-
-app.hideModal = function() {
-    $('#modal__search').hide();
-    $('#modal__random').hide();
-}
 
 //Function to initalize app
 app.init = function(){
     $('#search__form').hide();
     $('#random__art').hide();
     $('.loading-animation').hide();
+    $('#loading-animation-search').hide();
+    $('#results__link').hide();
     app.hideModal()
     app.submitForm();
     app.btnControls();
     app.modalControls();
 };
-
-
 
 //Initalize the app once the Document object is ready.
 $(document).ready(function(){
