@@ -152,10 +152,11 @@ footer {
 }
 
 #loading-container {
-    background-color: var(--tc-juno);
+    /* background-color: var(--tc-juno); */
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    margin-top: 50px;
 }
 
 /* Form */

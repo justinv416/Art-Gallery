@@ -127,6 +127,7 @@ app.submitForm = function() {
         event.preventDefault();
         $('#results').empty();
         $('#random__art').hide();
+        $('#results__link').hide();
         app.searchArtworks();
     }); 
 };
@@ -139,7 +140,9 @@ app.btnControls = function() {
 
     $('#main__button--generate').on('click', function(){
         app.getRandomArtworks();
-        $('#results').empty()
+        $('#results').empty();
+        $('#results__link').hide();
+        $('#search__form').hide();
         $('#random__art').show();
     });
 
