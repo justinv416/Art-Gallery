@@ -201,7 +201,7 @@ app.modalControls = function() {
     });
     
     $(document).on('click', '#close__icon--modal-search', function() {
-        app.hideModal();
+        $('#modal__search').hide();
         $('body').css('overflow', 'auto');
     });
 };
