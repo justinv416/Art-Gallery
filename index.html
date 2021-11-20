@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta 
+        name="description" 
+        content="Art Unlimited is a website that uses the Art Institite of Chicago's 
+        API to allow users to generate and search for artwork.">
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +36,7 @@
                 <div class="main__content">
                     <div class="main__content--copy">
                         <h1>Limitless inspiration.</h1>
-                        <p>
+                        <p class="copy">
                             Powered by the Art Institute of Chicago's API, 
                             Art Unlimited is a website that allows users to generate random artworks 
                             for daily inspiration or search for artworks from their extensive collection. 
@@ -48,15 +52,17 @@
                             <img src="./Icons/close.png" alt="A close icon" class="close-icon">
                         </div>
                     </form> 
+                    <!-- Not completely satisifed with this, will change to an SPA or display 
+                    results on a seperate page in the future-->
                     <div id="loading-container">
-                        <a href="#results" id="results__link">Results have loaded.<br>Jump to search results.</a>
+                        <a href="#results" id="results__link">Jump to search results.</a>
                         <div id="loading-animation-search">
                             <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                         </div>
                     </div>
                 </div>
                 <div id="main__img--container">
-                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art">
+                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" id="main__image">
                 </div>
             </div>
         </section>
@@ -122,6 +128,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="app.js"></script>       
 
 </body>

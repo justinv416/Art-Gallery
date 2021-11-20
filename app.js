@@ -3,8 +3,15 @@ const app = {};
 
 //Function that generates and returns a random number.
 app.generateRandomNum = function(max) {
-    return Math.floor(Math.random() * max)
-}
+    return Math.floor(Math.random() * max);
+};
+
+//Function that displays a 'no pictures' icon if no images are available.  
+app.checkImage = function(image) {
+    if(image === null) {
+        $('.art__image').attr('src', './Icons/no-pictures.png');
+    };
+};
 
 /*Function that will display art with parameters that will be passed in during the ajax call.
 Note: might consolidate this with displaySearchArt function in the future, 
@@ -76,21 +83,19 @@ app.getRandomArtworks = function() {
             data[randomArtNum].medium_display,
             data[randomArtNum].place_of_origin
         );
-        //Boolean that displays a 'no pictures icon' if no images are available.  
-        if(data[randomArtNum].image_id === null) {
-            $('.art__image').attr('src', './Icons/no-pictures.png');
-        };
-       //Method to log error should API call fails. 
+        app.checkImage(data[randomArtNum].image_id);
+       //Method to log error should API call fails. Not sure if this is the correct way to do this.  
     }).fail(function(error){
-        console.log(error)
+        console.log(error);
     });
 };
 
 //Function to search for and retrun artwork. Very messy? Should refactor at some point. 
 app.searchArtworks = function() {
+    //Show loading screen while call is being made.
     $('#loading-animation-search').show();
+    //This call will return an array of ids that will represent the respective artwork.
     $.ajax({
-        //This call will return an array of ids that will represent the respective artwork.
         url: 'https://api.artic.edu/api/v1/artworks/search?',
         dataType: 'json',
         method: 'GET', 
@@ -102,21 +107,26 @@ app.searchArtworks = function() {
     }).then(function(response) {
         const arrayOfIds = response.data;
         /*
-            Foreach loop that will make an API call and pass in the id into another API call
+            Foreach loop that will make an API call and pass in the art ids into another API call
             and fetch the JSON needed to display the artwork and its information. Each artwork 
-            is then dynamically rendered onto the document with the HTML string bwlow.
+            is then dynamically rendered onto the document with the displaySearchArt function.
         */
         arrayOfIds.forEach(function(item){
             $.ajax({
                 url: `https://api.artic.edu/api/v1/artworks/${item.id}`,
                 dataType: 'json'
             }).then(function(response){
+                //Hide loading animation
                 $('#loading-animation-search').hide();
+                //Displays link where users can click to jump to results
                 $('#results__link').show();
                 const artData = response.data;
                 app.displaySearchArt(artData);
+                app.checkImage(artData.image_id);
             });
         });
+    }).fail(function(error){
+        console.log(error);
     });
 };
 
@@ -157,27 +167,20 @@ app.btnControls = function() {
 };
 
 //Function to hide header/footer elements.
-app.hideNavigation = function() {
+app.hideNavigation = function(){
     $('#header').hide();
     $('footer').hide();
 }
 
 //Function to show header/footer elements.
-app.showNavigation = function() {
+app.showNavigation = function(){
     $('#header').show();
     $('footer').show();
-}
-
-//Function to hide modals.
-app.hideModal = function() {
-    $('#modal__search').hide();
-    $('#modal__random').hide();
-}
+};
 
 //Function to control image modal
 app.modalControls = function() {
     $('#art__image--random').on('click', function() {
-        $('.art__container').hide();
         app.hideNavigation();
         $('#modal__random').show();
         $('#art__image--modal-random').attr('src', $(this).attr('src'));
@@ -186,14 +189,12 @@ app.modalControls = function() {
     
     $('#close__icon--modal').on('click', function() {
         $('#modal__random').hide();
-        $('.art__container').show();
         app.showNavigation();
         $('body').css('overflow', 'auto');
     });
 
     //Event Delegation for dynamically generated html
     $(document).on('click', '.art__image--search', function() {
-        console.log('clicked')
         $('#art__image--modal-search').attr('src', $(this).attr('src'));
         $('#modal__search').show();
         $('body').css('overflow', 'hidden');
@@ -205,14 +206,49 @@ app.modalControls = function() {
     });
 };
 
-//Function to initalize app
-app.init = function(){
+//GSAP Animations (Just for fun, might delete later.)
+app.titleAnimation = function(){
+    const timelineOne = gsap.timeline();
+    timelineOne.from($('#main__image'), {
+        duration: 1,
+        opacity: 0
+    })
+    .from($('h1'), {
+        y: 100,
+        opacity: 0
+    }, "<0.2")
+    .from($('.copy'), {
+        y: 100,
+        opacity: 0
+    }, "<0.3")
+    .from($('#main__button--container'), {
+        y: 100,
+        opacity: 0
+    }, "<0.4")
+    .from($('.nav__main--logo'), {
+        opacity: 0,
+        y: 10
+    }, "<0.2")
+    .from($('footer'), {
+        opacity: 0,
+        y: 100
+    }, "<")
+}
+
+//Function to hide certain elements on init. 
+app.hideOnInit = function() {
+    $('.modal').hide();
     $('#search__form').hide();
     $('#random__art').hide();
     $('.loading-animation').hide();
     $('#loading-animation-search').hide();
     $('#results__link').hide();
-    app.hideModal()
+};
+
+//Function to initalize app
+app.init = function(){
+    app.hideOnInit();
+    app.titleAnimation();
     app.submitForm();
     app.btnControls();
     app.modalControls();
@@ -222,7 +258,6 @@ app.init = function(){
 $(document).ready(function(){
     app.init();
 });
-
 
 
 

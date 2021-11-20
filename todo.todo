@@ -1,15 +1,20 @@
 //HTML
-✔ Clean up/ refactor @done(21-11-16 21:01)
+✔ Clean up/refactor/consolidate. @done(21-11-16 21:01)
 ✔ Add modal/figcaption to search results @done(21-11-19 15:50)
+☐ Clean up/consolidate ids and classes
+☐ Explore the possibility of displaying search results in a seperate page.
 
 //CSS
-☐ Cleanup/refactor/consolidate
+☐ Cleanup/refactor/consolidate.
 ✔ footer causing z-index issues @done(21-11-15 15:13)
 ✔ figcaption hidden on larger images, padding/margin issues, investigate. @done(21-11-19 16:40)
-☐ Add a dark mode (because, why not?). 
+☐ Make app completely responsive. 
+    ☐ Fluid typography,
+    ☐ Fluid Images,
+    ☐ Flex row to flex column on mobile. 
 
 //JS
-☐ Clean up/ refactor
+☐ Clean up/refactor/consolidate. 
 ✔ Make sure namespace oraganization is consistent @done(21-11-18 18:28)
 ✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
 ✘ Explore rendering random artwork dynamically with HTML in JS instead @cancelled(21-11-15 15:14)
@@ -21,3 +26,5 @@
 ✔ Function to return to the top of page. @done(21-11-15 15:13)
 ☐ Add pagination to search results to allow for better performance and more results. 
 ☐ Maybe convert the whole thing to ReactJS in the future to make it a true SPA.
+✔ GSAP animations @done(21-11-20 15:58)
+☐ Incorporate local storage to allow users to store images. 

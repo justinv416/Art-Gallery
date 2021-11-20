@@ -31,6 +31,7 @@ button {
     width: 45%;
     height: 50px;
     background: none;
+    border: 2px solid var(--pc-text);
     font-size: 18px;
 }
 
@@ -52,8 +53,9 @@ footer {
     align-items: center;
     background-color: var(--pc-text-white);
     padding: 0 50px;
-    font-size: 18px;
+    font-size: 20px;
     position: fixed;
+    font-family: var(--pf-playfair);
     bottom: 0;
 }
 
@@ -136,7 +138,7 @@ footer {
     width: 50%;
 }
 
-#main img {
+#main__image {
     width: 100%;
     height: auto;
     padding: 0 50px 0 50px;
@@ -150,6 +152,18 @@ footer {
 #results__link {
     font-size: 20px;
     position: relative;
+}
+
+#results__link:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+    background-color: #000;
+    animation-delay: 3s;
+    animation: grow .5s forwards;
 }
 
 #loading-container {
@@ -195,12 +209,14 @@ footer {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
-.img__container {
-    width: 100%;
+.image__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .art__container--button {
@@ -211,14 +227,7 @@ footer {
     width: 100%;
     height: auto;
     max-height: 700px;
-    padding: 50px 50px 0 50px;
-}
-
-.art__image--search {
-    width: 100%;
-    height: auto;
-    max-height: 600px;
-    padding: 50px 50px 0 50px;
+    padding: 0 50px;
 }
 
 .art__description {
@@ -287,6 +296,21 @@ footer {
 #results-container {
     display: flex;
     align-items: center;
+}
+
+.image__container--search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    max-width: 50%;
+}
+
+.art__image--search {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    padding: 50px 50px 0 50px;
 }
 
 #results-container:last-of-type {
@@ -425,14 +449,4 @@ footer {
     padding: 50px;
 }
 
-.image__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.image__container--search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
