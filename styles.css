@@ -28,7 +28,7 @@ a {
 }
 
 button {
-    width: 45%;
+    width: calc(50% - 10px);
     height: 50px;
     background: none;
     border: 2px solid var(--pc-text);
@@ -157,7 +157,18 @@ footer .wrapper {
 
 #main__button--container {
     margin-bottom: 50px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+
+#main__button--generate {
     width: 100%;
+}
+
+.random__art--link {
+    width: 50%;
 }
 
 #results__link {
@@ -460,6 +471,15 @@ footer .wrapper {
 }
 
 @media (max-width: 1200px) {
+    footer {
+        padding: 100px;
+        position: initial;
+    }
+
+    .nav__main--logo {
+        justify-content: center;
+    }
+
     .main__content--container {
         flex-direction: column-reverse;
     }
@@ -474,6 +494,7 @@ footer .wrapper {
 
     .main__content--copy {
         text-align: center;
+        padding: 0;
     }
 
     #main__button--search {
