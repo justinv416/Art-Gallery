@@ -22,82 +22,101 @@
     <!-- Header/navigation -->
     <header id="header">
         <nav class="nav__main">
-            <a href="index.html"><div class="nav__main--logo">
-                <img src="./Icons/infinity.png" alt="An icon depicting an infinity symbol" class="nav__main--logo-icon">
-                <h2 class="nav__main--title">Art Unlimited</h2>
-            </div></a>
+            <div class="wrapper">
+                <a href="index.html">
+                    <div class="nav__main--logo">
+                        <img src="./Icons/infinity.png" alt="An icon depicting an infinity symbol" class="nav__main--logo-icon">
+                        <h2 class="nav__main--title">Art Unlimited</h2>
+                    </div>
+                </a>
+            </div>
         </nav>
     </header>
 
     <main>
         <!-- Home section -->
         <section id="main">
-            <div class="main__content--container">
-                <div class="main__content">
-                    <div class="main__content--copy">
-                        <h1>Limitless inspiration.</h1>
-                        <p class="copy">
-                            Powered by the Art Institute of Chicago's API, 
-                            Art Unlimited is a website that allows users to generate random artworks 
-                            for daily inspiration or search for artworks from their extensive collection. 
-                        </p>
-                    </div>
-                    <div id="main__button--container">
-                        <a href="#random__art"><button id="main__button--generate">Generate Art</button></a>
-                        <button id="main__button--search">Search for Art</button>
-                    </div>
-                    <form action="" id="search__form">
-                        <div class="input-container">
-                            <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
-                            <img src="./Icons/close.png" alt="A close icon" class="close-icon">
+            <div class="wrapper">
+                <div class="main__content--container">
+                    <div class="main__content">
+                        <div class="main__content--copy">
+                            <h1>Limitless inspiration.</h1>
+                            <p class="copy">
+                                Powered by the Art Institute of Chicago's API,
+                                Art Unlimited is a website that allows users to generate random artworks
+                                for daily inspiration or search for artworks from their extensive collection.
+                            </p>
                         </div>
-                    </form> 
-                    <!-- Not completely satisifed with this, will change to an SPA or display 
-                    results on a seperate page in the future-->
-                    <div id="loading-container">
-                        <a href="#results" id="results__link">Jump to search results.</a>
-                        <div id="loading-animation-search">
-                            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                        <div id="main__button--container">
+                            <a href="#random__art"><button id="main__button--generate">Generate Art</button></a>
+                            <button id="main__button--search">Search for Art</button>
+                        </div>
+                        <form action="" id="search__form">
+                            <div class="input-container">
+                                <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
+                                <img src="./Icons/close.png" alt="A close icon" class="close-icon">
+                            </div>
+                        </form>
+                        <!-- Not completely satisifed with this, will change to an SPA or display 
+                                    results on a seperate page in the future-->
+                        <div id="loading-container">
+                            <a href="#results" id="results__link">Jump to search results.</a>
+                            <div id="loading-animation-search">
+                                <div class="lds-ring">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="main__img--container">
-                    <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" id="main__image">
+                    <div id="main__img--container">
+                        <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" id="main__image">
+                    </div>
                 </div>
             </div>
+            
         </section>
 
         <!-- Randomly generated art section -->
         <section id="random__art">
-            <!-- loading animation -->
-            <div class="loading-animation">
-                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-            </div>
-            <div class="art__container">
-                <div class="image__container">
-                    <img src="" alt="An image of art" class="art__image" id="art__image--random">
-                    <figcaption>Click image to enlarge</figcaption>
+            <div class="wrapper">
+                <!-- loading animation -->
+                <div class="loading-animation">
+                    <div class="lds-ring">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
-                <div class="art__description">
-                    <div class="art__description--details">
-                        <h2><span class="art__description--title"></span></h2>
-                        <h2><span class="art__description--artist"></span></h2>
-                        <h3 class="art__description--date"></h3>
+                <div class="art__container">
+                    <div class="image__container">
+                        <img src="" alt="An image of art" class="art__image" id="art__image--random">
+                        <figcaption>Click image to enlarge</figcaption>
                     </div>
-                    <div class="art__description--details">
-                        <h3 class="art__description--classification"></h3>
-                        <h3 class="art__description--medium"></h3>
-                        <h3 class="art__description--origin"></h3>
+                    <div class="art__description">
+                        <div class="art__description--details">
+                            <h2><span class="art__description--title"></span></h2>
+                            <h2><span class="art__description--artist"></span></h2>
+                            <h3 class="art__description--date"></h3>
+                        </div>
+                        <div class="art__description--details">
+                            <h3 class="art__description--classification"></h3>
+                            <h3 class="art__description--medium"></h3>
+                            <h3 class="art__description--origin"></h3>
+                        </div>
+                        <div class="art__container--button">
+                            <button id="next-btn">Next Artwork</button>
+                        </div>
                     </div>
-                    <div class="art__container--button">
-                        <button id="next-btn">Next Artwork</button>
-                    </div>                
-                </div> 
+                </div>
+                <div class="modal" id="modal__random">
+                    <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal" title="Click to close">
+                    <img src="" alt="An image of art" class="art__image" id="art__image--modal-random">
+                </div>
             </div>
-            <div class="modal" id="modal__random">
-                <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal" title="Click to close">
-                <img src="" alt="An image of art" class="art__image" id="art__image--modal-random">
-            </div>  
         </section>
 
         <!-- Search Results -->
@@ -113,12 +132,15 @@
 
     <!-- Footer -->
     <footer id="footer">
-        <p>Created by <a href="https://github.com/justinv416" target="blank" class="footer__link" id="me-link">Justin Vien</a> @
-            <a href="https://www.junocollege.com" target="blank" class="footer__link" id="juno-link">Juno College</a>
-        </p>
-        <div class="misc__links">
-            <a href="https://www.artic.edu" target="blank" class="footer__link" id="misc__links--artic">Visit the Art Insititue of Chicago</a>
-            <a href="#main" class="footer__link" id="misc__links--btt">Back to top</a>
+        <div class="wrapper">
+            <p>Created by <a href="https://github.com/justinv416" target="blank" class="footer__link" id="me-link">Justin Vien</a> @
+                <a href="https://www.junocollege.com" target="blank" class="footer__link" id="juno-link">Juno College</a>
+            </p>
+            <div class="misc__links">
+                <a href="https://www.artic.edu" target="blank" class="footer__link" id="misc__links--artic">Visit the Art Insititue
+                    of Chicago</a>
+                <a href="#main" class="footer__link" id="misc__links--btt">Back to top</a>
+            </div>
         </div>
     </footer>
 

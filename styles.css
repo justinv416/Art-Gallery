@@ -33,19 +33,19 @@ button {
     background: none;
     border: 2px solid var(--pc-text);
     font-size: 18px;
+    transition: all .5s;
 }
 
 button:hover {
     background-color: var(--pc-text);
     color: var(--pc-text-white);
-    transition: all .5s;
 }
 
 figcaption {
     margin-top: 10px;
 }
 
-footer {
+footer .wrapper {
     display: flex;
     width: 100%;
     height: 50px;
@@ -57,6 +57,12 @@ footer {
     position: fixed;
     font-family: var(--pf-playfair);
     bottom: 0;
+}
+
+.wrapper {
+    width: 95%;
+    /* background-color: #6495ED; */
+    margin: auto;
 }
 
 /* Navigation */
@@ -72,7 +78,6 @@ footer {
 }
 
 .nav__main--logo {
-    margin-left: 50px;
     display: flex;
     align-items: center;
 }
@@ -111,7 +116,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
 }
 
 .main__content--copy {
@@ -119,6 +123,8 @@ footer {
     flex-direction: column;
     width: 100%;
     margin: 0 0 50px 0;
+    padding: 0 50px 0 0;
+    /* background-color: #6495ED; */
 }
 
 .main__content--copy h1 {
@@ -141,7 +147,6 @@ footer {
 #main__image {
     width: 100%;
     height: auto;
-    padding: 0 50px 0 50px;
 }
 
 #main__button--container {
@@ -227,7 +232,6 @@ footer {
     width: 100%;
     height: auto;
     max-height: 700px;
-    padding: 0 50px;
 }
 
 .art__description {
