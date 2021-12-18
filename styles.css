@@ -449,4 +449,39 @@ footer {
     padding: 50px;
 }
 
+@media (max-width: 1200px) {
+    .main__content--container {
+        flex-direction: column-reverse;
+    }
 
+    .main__content {
+        max-width: 100%;
+    }
+
+    #main__img--container {
+        width: 100%;
+    }
+
+    .main__content--copy {
+        text-align: center;
+    }
+
+    #main__button--search {
+        width: 49%;
+    }
+
+    .art__container {
+        flex-direction: column;
+    }
+
+    .art__description {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        height: auto;
+    }
+
+    #results-container {
+        flex-direction: column;
+    }
+}
