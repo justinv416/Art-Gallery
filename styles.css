@@ -43,6 +43,14 @@ button:hover {
 
 figcaption {
     margin-top: 10px;
+    font-family: var(--sf-open-sans);
+    text-transform: uppercase;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 footer .wrapper {
@@ -54,9 +62,7 @@ footer .wrapper {
     background-color: var(--pc-text-white);
     padding: 0 50px;
     font-size: 20px;
-    position: fixed;
     font-family: var(--pf-playfair);
-    bottom: 0;
 }
 
 .wrapper {
@@ -211,7 +217,6 @@ footer .wrapper {
 }
 
 .art__container {
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -239,8 +244,9 @@ footer .wrapper {
     flex-direction: column;
     justify-content: space-evenly;
     width: 50%;
-    height: 50%;
-    margin-right: 50px;
+    text-align: center;
+    /* background-color: #6495ED; */
+    padding: 50px;
 }
 
 .art__description--details {
