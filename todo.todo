@@ -18,7 +18,7 @@
 ✔ Make sure namespace oraganization is consistent @done(21-11-18 18:28)
 ✔ When searching for artwork ensure previous entries are emptied first @done(21-11-14 19:29)
 ✘ Explore rendering random artwork dynamically with HTML in JS instead @cancelled(21-11-15 15:14)
-☐ Maybe add a way to increase art display limit within form i.e. select and option elements. 
+✘ Maybe add a way to increase art display limit within form i.e. select and option elements. @cancelled(21-12-19 17:26)
 ✔ Loading screen to let data finish loading @done(21-11-17 17:28)
 ✘ function to Auto scroll to content when loaded. @cancelled(21-11-19 15:50)
 ✔ Modal when clicking on artwork @done(21-11-17 19:02)
@@ -27,4 +27,4 @@
 ☐ Add pagination to search results to allow for better performance and more results. 
 ☐ Maybe convert the whole thing to ReactJS in the future to make it a true SPA.
 ✔ GSAP animations @done(21-11-20 15:58)
-☐ Incorporate local storage to allow users to store images. 
+✘ Incorporate local storage to allow users to store images. @cancelled(21-12-19 17:26)

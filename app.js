@@ -53,13 +53,6 @@ app.displaySearchArt = function(data) {
     $('.results').append(dataHTML);
 };
 
-// app.nextPageButton = function(){
-//     const buttonHtml = `
-//         <button>Next Page</button>
-//     `
-//     $('#results').append(buttonHtml);
-// }
-
 //Function to make the ajax call to API and generate random artwork.
 app.getRandomArtworks = function() {
     //For performance reasons this API is limited to 100 pages
@@ -98,16 +91,6 @@ app.getRandomArtworks = function() {
         console.log(error);
     });
 };
-
-//Function to change page number
-let page = 1
-app.getNextPage = function() {
-    page++;
-    console.log(page)
-}
-
-
-$('.results__button').on('click', app.getNextPage)
 
 //Function to search for and retrun artwork. Very messy? Should refactor at some point. 
 app.searchArtworks = function(number) {
@@ -160,9 +143,25 @@ app.submitForm = function() {
         $('.results').empty();
         $('#random__art').hide();
         $('#results__link').hide();
-        app.searchArtworks(2);
+        app.searchArtworks(page);
     }); 
 };
+
+//Initalize the first page to 1
+let page = 1
+//Function to increment page number
+app.getNextPage = function() {
+    page++;
+}
+
+$('.results__button').on('click', function(){
+    $('.results').empty();
+    $('#random__art').hide();
+    $('#results__link').hide()
+    app.getNextPage()
+    app.searchArtworks(page);
+    console.log(page)
+});
 
 //Event listeners for buttons/icons on page.
 app.btnControls = function() {
