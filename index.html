@@ -35,7 +35,7 @@
 
     <main>
         <!-- Home section -->
-        <section id="main">
+        <section id="main" class="main">
             <div class="wrapper">
                 <div class="main__content--container">
                     <div class="main__content">
@@ -47,9 +47,9 @@
                                 for daily inspiration or search for artworks from their extensive collection.
                             </p>
                         </div>
-                        <div id="main__button--container">
-                            <a href="#random__art" class="random__art--link"><button id="main__button--generate">Generate Art</button></a>
-                            <button id="main__button--search">Search for Art</button>
+                        <div class="main__buttons">
+                            <a href="#random__art" class="random__art--link"><button class="main__buttons--generate">Generate Art</button></a>
+                            <button class="main__buttons--search">Search for Art</button>
                         </div>
                         <form action="" id="search__form">
                             <div class="input-container">
@@ -59,7 +59,7 @@
                         </form>
                         <!-- Not completely satisifed with this, will change to an SPA or display 
                                     results on a seperate page in the future-->
-                        <div id="loading-container">
+                        <div class="loading__container">
                             <a href="#results" id="results__link">Jump to search results.</a>
                             <div id="loading-animation-search">
                                 <div class="lds-ring">
@@ -120,7 +120,10 @@
         </section>
 
         <!-- Search Results -->
-        <section id="results"></section>
+        <section id="results">
+            <div class="results"></div>
+            <button class="results__button">Next PAge</button>
+        </section>
 
         <!-- modal -->
         <div class="modal" id="modal__search">
@@ -150,8 +153,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script src="app.js"></script>       
-
 </body>
 </html>

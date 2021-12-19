@@ -29,6 +29,7 @@ app.displayRandomArt = function(imgSrc, title, artist, date, classification, med
 //Function that generates HTML to display art based on the search. 
 app.displaySearchArt = function(data) {
     const dataHTML = `
+    <div class="wrapper">
         <div id="results-container">
             <div class="image__container--search">
                 <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art__image--search"> 
@@ -47,9 +48,17 @@ app.displaySearchArt = function(data) {
                 </div>
             </div>
         </div>
+    </div>    
     `;
-    $('#results').append(dataHTML);
+    $('.results').append(dataHTML);
 };
+
+// app.nextPageButton = function(){
+//     const buttonHtml = `
+//         <button>Next Page</button>
+//     `
+//     $('#results').append(buttonHtml);
+// }
 
 //Function to make the ajax call to API and generate random artwork.
 app.getRandomArtworks = function() {
@@ -90,8 +99,18 @@ app.getRandomArtworks = function() {
     });
 };
 
+//Function to change page number
+let page = 1
+app.getNextPage = function() {
+    page++;
+    console.log(page)
+}
+
+
+$('.results__button').on('click', app.getNextPage)
+
 //Function to search for and retrun artwork. Very messy? Should refactor at some point. 
-app.searchArtworks = function() {
+app.searchArtworks = function(number) {
     //Show loading screen while call is being made.
     $('#loading-animation-search').show();
     //This call will return an array of ids that will represent the respective artwork.
@@ -102,8 +121,9 @@ app.searchArtworks = function() {
         data: {
             q: `${$('#search__form--input').val()}`,
             //Limit currently set at 20 for performance reasons, will add pagination in the future
-            limit: '20'
-        }
+            limit: '20',
+            page: number
+        },
     }).then(function(response) {
         const arrayOfIds = response.data;
         /*
@@ -125,6 +145,8 @@ app.searchArtworks = function() {
                 app.checkImage(artData.image_id);
             });
         });
+        $('.results__button').show();
+        console.log(this.url)
     }).fail(function(error){
         console.log(error);
     });
@@ -135,10 +157,10 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
-        $('#results').empty();
+        $('.results').empty();
         $('#random__art').hide();
         $('#results__link').hide();
-        app.searchArtworks();
+        app.searchArtworks(2);
     }); 
 };
 
@@ -148,7 +170,7 @@ app.btnControls = function() {
         app.getRandomArtworks();
     });
 
-    $('#main__button--generate').on('click', function(){
+    $('.main__buttons--generate').on('click', function(){
         app.getRandomArtworks();
         $('#results').empty();
         $('#results__link').hide();
@@ -156,7 +178,7 @@ app.btnControls = function() {
         $('#random__art').show();
     });
 
-    $('#main__button--search').on('click', function() {
+    $('.main__buttons--search').on('click', function() {
         $('#search__form').show();
     });
 
@@ -215,23 +237,28 @@ app.titleAnimation = function(){
     })
     .from($('h1'), {
         y: 100,
-        opacity: 0
+        opacity: 0,
+        duration: 0.5
     }, "<0.2")
     .from($('.copy'), {
         y: 100,
-        opacity: 0
-    }, "<0.3")
-    .from($('#main__button--container'), {
-        y: 100,
-        opacity: 0
+        opacity: 0,
+        duration: 0.5
     }, "<0.4")
+    .from($('.main__buttons'), {
+        y: 100,
+        opacity: 0,
+        duration: 0.5
+    }, "<0.5")
     .from($('.nav__main--logo'), {
         opacity: 0,
-        y: 10
-    }, "<0.2")
+        y: 10,
+        duration: 0.5
+    }, "<0.6")
     .from($('footer'), {
         opacity: 0,
-        y: 100
+        y: 100,
+        duration: 0.5
     }, "<")
 }
 
@@ -243,6 +270,7 @@ app.hideOnInit = function() {
     $('.loading-animation').hide();
     $('#loading-animation-search').hide();
     $('#results__link').hide();
+    $('.results__button').hide();
 };
 
 //Function to initalize app
@@ -259,8 +287,12 @@ $(document).ready(function(){
     app.init();
 });
 
-
-
+//TODO: 
+/*
+    Pagination feature so far:
+        number has been passed onto searchartwoks button, 
+        next step is to call the api again but have the number passed onto the function. 
+*/
 
 
 
