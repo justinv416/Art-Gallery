@@ -128,7 +128,7 @@ app.searchArtworks = function(number) {
                 app.checkImage(artData.image_id);
             });
         });
-        $('.results__button').show();
+        $('.results__next--button').show();
         console.log(this.url)
     }).fail(function(error){
         console.log(error);
@@ -143,18 +143,24 @@ app.submitForm = function() {
         $('.results').empty();
         $('#random__art').hide();
         $('#results__link').hide();
+        $('.results__next').show();
         app.searchArtworks(page);
     }); 
 };
 
 //Initalize the first page to 1
-let page = 1
+let page = 1;
 //Function to increment page number
 app.getNextPage = function() {
     page++;
-}
+    if (page > 1) {
+        $('.results__prev--button').show();
+    } else {
+        $('.results__prev--button').hide();
+    }
+};
 
-$('.results__button').on('click', function(){
+$('.results__next--button').on('click', function(){
     $('.results').empty();
     $('#random__art').hide();
     $('#results__link').hide()
@@ -249,7 +255,7 @@ app.titleAnimation = function(){
         opacity: 0,
         duration: 0.5
     }, "<0.5")
-    .from($('.nav__main--logo'), {
+    .from($('.nav__title'), {
         opacity: 0,
         y: 10,
         duration: 0.5
@@ -269,7 +275,9 @@ app.hideOnInit = function() {
     $('.loading-animation').hide();
     $('#loading-animation-search').hide();
     $('#results__link').hide();
-    $('.results__button').hide();
+    $('.results__next').hide();
+    $('.results__next--button').hide();
+    $('.results__prev--button').hide();
 };
 
 //Function to initalize app
@@ -287,11 +295,8 @@ $(document).ready(function(){
 });
 
 //TODO: 
-/*
-    Pagination feature so far:
-        number has been passed onto searchartwoks button, 
-        next step is to call the api again but have the number passed onto the function. 
+/* 
+    implement previous page functionality
+
 */
-
-
 

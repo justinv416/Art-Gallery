@@ -2,13 +2,16 @@
 
 Art Unlimited is a website that uses the Art Institute of Chicago's API that allows users to generate and search for artwork from their vast collection. 
 
-### Built With 
+## Built With 
 
 * JQuery
 * ES6
 * GSAP
 * CSS
 * HTML
+
+## Live Site
+[Click Here To Visit SIte](https://artunlimited.netlify.app)
 
 ## Acknowledgements 
 

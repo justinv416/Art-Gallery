@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta 
         name="description" 
         content="Art Unlimited is a website that uses the Art Institite of Chicago's 
-        API to allow users to generate and search for artwork.">
+        API to allow users to generate and search for artwork."
+    >
+    <!-- Stylesheet  -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +27,9 @@
         <nav class="nav__main">
             <div class="wrapper">
                 <a href="index.html">
-                    <div class="nav__main--logo">
-                        <img src="./Icons/infinity.png" alt="An icon depicting an infinity symbol" class="nav__main--logo-icon">
-                        <h2 class="nav__main--title">Art Unlimited</h2>
+                    <div class="nav__title">
+                        <img src="./Icons/infinity.png" alt="An icon depicting an infinity symbol" class="nav__title--icon">
+                        <h2 class="nav__title--heading">Art Unlimited</h2>
                     </div>
                 </a>
             </div>
@@ -40,7 +43,7 @@
                 <div class="main__content--container">
                     <div class="main__content">
                         <div class="main__content--copy">
-                            <h1>Limitless inspiration.</h1>
+                            <h1>Limitless inspiration</h1>
                             <p class="copy">
                                 Powered by the Art Institute of Chicago's API,
                                 Art Unlimited is a website that allows users to generate random artworks
@@ -122,7 +125,10 @@
         <!-- Search Results -->
         <section id="results">
             <div class="results"></div>
-            <button class="results__button">Next PAge</button>
+            <div class="results__next">
+                <button class="results__prev--button">Prev Page</button>
+                <button class="results__next--button">Next Page</button>
+            </div>
         </section>
 
         <!-- modal -->

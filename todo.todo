@@ -2,7 +2,8 @@
 ✔ Clean up/refactor/consolidate. @done(21-11-16 21:01)
 ✔ Add modal/figcaption to search results @done(21-11-19 15:50)
 ☐ Clean up/consolidate ids and classes
-☐ Explore the possibility of displaying search results in a seperate page.
+✘ Explore the possibility of displaying search results in a seperate page. @cancelled(21-12-19 18:14)
+☐ Add accessibility features (screen-readers, etc.)
 
 //CSS
 ☐ Cleanup/refactor/consolidate.
@@ -12,6 +13,7 @@
     ☐ Fluid typography,
     ☐ Fluid Images,
     ☐ Flex row to flex column on mobile. 
+☐ Include snippets.
 
 //JS
 ☐ Clean up/refactor/consolidate. 
