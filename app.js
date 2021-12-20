@@ -160,11 +160,29 @@ app.getNextPage = function() {
     }
 };
 
+app.getPreviousPage = function() {
+    page--;
+    if(page <= 1) {
+        $('.results__prev--button').hide();
+    } else {
+        $('.results__prev--button').show();
+    }
+}
+
 $('.results__next--button').on('click', function(){
     $('.results').empty();
     $('#random__art').hide();
     $('#results__link').hide()
     app.getNextPage()
+    app.searchArtworks(page);
+    console.log(page)
+});
+
+$('.results__prev--button').on('click', function(){
+    $('.results').empty();
+    $('#random__art').hide();
+    $('#results__link').hide()
+    app.getPreviousPage()
     app.searchArtworks(page);
     console.log(page)
 });
@@ -293,10 +311,3 @@ app.init = function(){
 $(document).ready(function(){
     app.init();
 });
-
-//TODO: 
-/* 
-    implement previous page functionality
-
-*/
-
