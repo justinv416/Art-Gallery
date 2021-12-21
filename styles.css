@@ -355,7 +355,7 @@ footer .wrapper {
 
 /* Loading screen */
 .loading-animation {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: var(--pc-text-white);
     display: flex;
