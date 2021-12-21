@@ -228,6 +228,7 @@ app.modalControls = function() {
     $('.art__image--random').on('click', function() {
         app.hideNavigation();
         $('#modal__random').show();
+        $('#modal__random').css('display', 'flex');
         $('#art__modal--random').attr('src', $(this).attr('src'));
         $('body').css('overflow', 'hidden');
     });
@@ -259,20 +260,20 @@ app.titleAnimation = function(){
         scale: 0.9
     })
     .from($('h1'), {
-        y: 50,
+        y: 20,
         opacity: 0,
         duration: 0.5
     }, "<0.2")
     .from($('.main__copy p'), {
-        y: 50,
+        y: 20,
+        opacity: 0,
+        duration: 0.5
+    }, "<0.3")
+    .from($('.main__buttons'), {
+        y: 20,
         opacity: 0,
         duration: 0.5
     }, "<0.4")
-    .from($('.main__buttons'), {
-        y: 50,
-        opacity: 0,
-        duration: 0.5
-    }, "<0.5")
     .from($('.nav__title'), {
         opacity: 0,
         y: 10,

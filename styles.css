@@ -66,7 +66,7 @@ footer .wrapper {
     justify-content: space-between;
     align-items: center;
     background-color: var(--pc-text-white);
-    padding: 10px 50px;
+    padding: 0 50px;
     font-size: 1rem;
     font-family: var(--pf-playfair);
 }
@@ -212,7 +212,6 @@ footer .wrapper {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 100vh;
 }
 
 .art__container {
@@ -256,7 +255,7 @@ footer .wrapper {
 }
 
 .art__description--details:nth-of-type(2) {
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 .art__description--details h2:nth-child(2) {
@@ -408,7 +407,7 @@ footer .wrapper {
 }
 
 /* Modal for artwork */
-#modal__search, #modal__random {
+.modal {
     height: auto;
     width: 100%;
     background-color: var(--pc-text-white);
@@ -416,7 +415,7 @@ footer .wrapper {
     position: fixed;
     top: 0;
     bottom: 0;
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
