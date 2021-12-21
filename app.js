@@ -225,7 +225,7 @@ app.showNavigation = function(){
 
 //Function to control image modal
 app.modalControls = function() {
-    $('#art__image--random').on('click', function() {
+    $('.art__image--random').on('click', function() {
         app.hideNavigation();
         $('#modal__random').show();
         $('#art__modal--random').attr('src', $(this).attr('src'));
