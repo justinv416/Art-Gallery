@@ -300,8 +300,8 @@ app.hideOnInit = function() {
 
 //Function to initalize app
 app.init = function(){
-    app.hideOnInit();
     app.titleAnimation();
+    app.hideOnInit();
     app.submitForm();
     app.btnControls();
     app.modalControls();

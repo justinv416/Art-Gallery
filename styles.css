@@ -211,7 +211,7 @@ footer .wrapper {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 100px 0;
+    height: 100vh;
 }
 
 .art__container {
@@ -560,7 +560,7 @@ footer .wrapper {
         font-size: 30px;
     }
 
-    .modal {
-
+    .next__artwork--button {
+        width: 100%;
     }
 }
