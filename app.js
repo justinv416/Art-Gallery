@@ -30,7 +30,7 @@ app.displayRandomArt = function(imgSrc, title, artist, date, classification, med
 app.displaySearchArt = function(data) {
     const dataHTML = `
     <div class="wrapper">
-        <div id="results-container">
+        <div class="results__container">
             <div class="image__container--search">
                 <img src=https://www.artic.edu/iiif/2/${data.image_id}/full/843,/0/default.jpg class="art__image--search"> 
                 <figcaption>Click image to enlarge</figcaption>
@@ -50,7 +50,7 @@ app.displaySearchArt = function(data) {
         </div>
     </div>    
     `;
-    $('.results').append(dataHTML);
+    $('.results__output').append(dataHTML);
 };
 
 //Function to make the ajax call to API and generate random artwork.
@@ -95,7 +95,7 @@ app.getRandomArtworks = function() {
 //Function to search for and retrun artwork. Very messy? Should refactor at some point. 
 app.searchArtworks = function(number) {
     //Show loading screen while call is being made.
-    $('#loading-animation-search').show();
+    $('.loading__animation--search').show();
     //This call will return an array of ids that will represent the respective artwork.
     $.ajax({
         url: 'https://api.artic.edu/api/v1/artworks/search?',
@@ -120,9 +120,9 @@ app.searchArtworks = function(number) {
                 dataType: 'json'
             }).then(function(response){
                 //Hide loading animation
-                $('#loading-animation-search').hide();
+                $('.loading__animation--search').hide();
                 //Displays link where users can click to jump to results
-                $('#results__link').show();
+                $('.search__results--link').show();
                 const artData = response.data;
                 app.displaySearchArt(artData);
                 app.checkImage(artData.image_id);
@@ -140,10 +140,10 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
-        $('.results').empty();
+        $('.results__output').empty();
         $('#random__art').hide();
-        $('#results__link').hide();
-        $('.results__next').show();
+        $('.search__results--link').hide();
+        $('.results__buttons').show();
         app.searchArtworks(page);
     }); 
 };
@@ -169,34 +169,34 @@ app.getPreviousPage = function() {
     }
 }
 
-$('.results__next--button').on('click', function(){
-    $('.results').empty();
-    $('#random__art').hide();
-    $('#results__link').hide()
-    app.getNextPage()
-    app.searchArtworks(page);
-    console.log(page)
-});
+app.paginationControls = function(){
+    $('.results__next--button').on('click', function(){
+        $('.results__output').empty();
+        $('#random__art').hide();
+        $('.search__results--link').hide()
+        app.getNextPage();
+        app.searchArtworks(page);
+    });
 
-$('.results__prev--button').on('click', function(){
-    $('.results').empty();
-    $('#random__art').hide();
-    $('#results__link').hide()
-    app.getPreviousPage()
-    app.searchArtworks(page);
-    console.log(page)
-});
+    $('.results__prev--button').on('click', function(){
+        $('.results__output').empty();
+        $('#random__art').hide();
+        $('.search__results--link').hide()
+        app.getPreviousPage();
+        app.searchArtworks(page);
+    });
+};
 
 //Event listeners for buttons/icons on page.
 app.btnControls = function() {
-    $('#next-btn').on('click', function(){
+    $('.next__artwork--button').on('click', function(){
         app.getRandomArtworks();
     });
 
     $('.main__buttons--generate').on('click', function(){
         app.getRandomArtworks();
         $('#results').empty();
-        $('#results__link').hide();
+        $('.search__results--link').hide();
         $('#search__form').hide();
         $('#random__art').show();
     });
@@ -205,9 +205,9 @@ app.btnControls = function() {
         $('#search__form').show();
     });
 
-    $('.close-icon').on('click', function(){
+    $('.close__icon').on('click', function(){
         $('#search__form').hide();
-        $('#results__link').hide();
+        $('.search__results--link').hide();
     });
 };
 
@@ -228,7 +228,7 @@ app.modalControls = function() {
     $('#art__image--random').on('click', function() {
         app.hideNavigation();
         $('#modal__random').show();
-        $('#art__image--modal-random').attr('src', $(this).attr('src'));
+        $('#art__modal--random').attr('src', $(this).attr('src'));
         $('body').css('overflow', 'hidden');
     });
     
@@ -240,7 +240,7 @@ app.modalControls = function() {
 
     //Event Delegation for dynamically generated html
     $(document).on('click', '.art__image--search', function() {
-        $('#art__image--modal-search').attr('src', $(this).attr('src'));
+        $('#art__modal--search').attr('src', $(this).attr('src'));
         $('#modal__search').show();
         $('body').css('overflow', 'hidden');
     });
@@ -254,22 +254,22 @@ app.modalControls = function() {
 //GSAP Animations (Just for fun, might delete later.)
 app.titleAnimation = function(){
     const timelineOne = gsap.timeline();
-    timelineOne.from($('#main__image'), {
+    timelineOne.to($('.main__image'), {
         duration: 1,
-        opacity: 0
+        scale: 0.9
     })
     .from($('h1'), {
-        y: 100,
+        y: 50,
         opacity: 0,
         duration: 0.5
     }, "<0.2")
-    .from($('.copy'), {
-        y: 100,
+    .from($('.main__copy p'), {
+        y: 50,
         opacity: 0,
         duration: 0.5
     }, "<0.4")
     .from($('.main__buttons'), {
-        y: 100,
+        y: 50,
         opacity: 0,
         duration: 0.5
     }, "<0.5")
@@ -280,7 +280,7 @@ app.titleAnimation = function(){
     }, "<0.6")
     .from($('footer'), {
         opacity: 0,
-        y: 100,
+        y: 20,
         duration: 0.5
     }, "<")
 }
@@ -291,9 +291,9 @@ app.hideOnInit = function() {
     $('#search__form').hide();
     $('#random__art').hide();
     $('.loading-animation').hide();
-    $('#loading-animation-search').hide();
-    $('#results__link').hide();
-    $('.results__next').hide();
+    $('.loading__animation--search').hide();
+    $('.search__results--link').hide();
+    $('.results__buttons').hide();
     $('.results__next--button').hide();
     $('.results__prev--button').hide();
 };
@@ -305,9 +305,10 @@ app.init = function(){
     app.submitForm();
     app.btnControls();
     app.modalControls();
+    app.paginationControls();
 };
 
-//Initalize the app once the Document object is ready.
+//Initialize the app once the Document object is ready.
 $(document).ready(function(){
     app.init();
 });

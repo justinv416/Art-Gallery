@@ -26,7 +26,9 @@
 ✔ Modal when clicking on artwork @done(21-11-17 19:02)
 ✔ add no image function to search results @done(21-11-14 19:37)
 ✔ Function to return to the top of page. @done(21-11-15 15:13)
-☐ Add pagination to search results to allow for better performance and more results. 
+✔ Add pagination to search results to allow for better performance and more results. @done(21-12-20 12:11)
 ☐ Maybe convert the whole thing to ReactJS in the future to make it a true SPA.
 ✔ GSAP animations @done(21-11-20 15:58)
 ✘ Incorporate local storage to allow users to store images. @cancelled(21-12-19 17:26)
+☐ Change footer to be fixed after scroll
+☐ Hide prev, next buttons when fetching respective page. 

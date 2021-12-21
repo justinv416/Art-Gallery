@@ -42,9 +42,9 @@
             <div class="wrapper">
                 <div class="main__content--container">
                     <div class="main__content">
-                        <div class="main__content--copy">
+                        <div class="main__copy">
                             <h1>Limitless inspiration</h1>
-                            <p class="copy">
+                            <p>
                                 Powered by the Art Institute of Chicago's API,
                                 Art Unlimited is a website that allows users to generate random artworks
                                 for daily inspiration or search for artworks from their extensive collection.
@@ -55,16 +55,14 @@
                             <button class="main__buttons--search">Search for Art</button>
                         </div>
                         <form action="" id="search__form">
-                            <div class="input-container">
+                            <div class="search__input--container">
                                 <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
-                                <img src="./Icons/close.png" alt="A close icon" class="close-icon">
+                                <img src="./Icons/close.png" alt="A close icon" class="close__icon">
                             </div>
                         </form>
-                        <!-- Not completely satisifed with this, will change to an SPA or display 
-                                    results on a seperate page in the future-->
                         <div class="loading__container">
-                            <a href="#results" id="results__link">Jump to search results.</a>
-                            <div id="loading-animation-search">
+                            <a href="#results" class="search__results--link">Jump to search results.</a>
+                            <div class="loading__animation--search">
                                 <div class="lds-ring">
                                     <div></div>
                                     <div></div>
@@ -74,8 +72,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="main__img--container">
-                        <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" id="main__image">
+                    <div class="main__image--container">
+                        <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" class="main__image">
                     </div>
                 </div>
             </div>
@@ -96,7 +94,7 @@
             <div class="wrapper">
                 <div class="art__container">
                     <div class="image__container">
-                        <img src="" alt="An image of art" class="art__image" id="art__image--random">
+                        <img src="" alt="An image of art" class="art__image art__image--random">
                         <figcaption>Click image to enlarge</figcaption>
                     </div>
                     <div class="art__description">
@@ -111,21 +109,21 @@
                             <h3 class="art__description--origin"></h3>
                         </div>
                         <div class="art__container--button">
-                            <button id="next-btn">Next Artwork</button>
+                            <button class="next__artwork--button">Next Artwork</button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal" id="modal__random">
-                <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal" title="Click to close">
-                <img src="" alt="An image of art" class="art__image" id="art__image--modal-random">
+                <img src="./Icons/close.png" alt="" class="close__icon" id="close__icon--modal" title="Click to close">
+                <img src="" alt="An image of art" class="art__image" id="art__modal--random">
             </div>
         </section>
 
         <!-- Search Results -->
         <section id="results">
-            <div class="results"></div>
-            <div class="results__next">
+            <div class="results__output"></div>
+            <div class="results__buttons">
                 <button class="results__prev--button">Prev Page</button>
                 <button class="results__next--button">Next Page</button>
             </div>
@@ -133,8 +131,8 @@
 
         <!-- modal -->
         <div class="modal" id="modal__search">
-            <img src="./Icons/close.png" alt="" class="close-icon" id="close__icon--modal-search" title="Click to close">
-            <img src="" alt="An image of art" class="art__image" id="art__image--modal-search">
+            <img src="./Icons/close.png" alt="An 'X' icon to close the modal" class="close__icon" id="close__icon--modal-search" title="Click to close">
+            <img src="" alt="An image of art" class="art__image" id="art__modal--search">
         </div>  
 
     </main>
@@ -142,8 +140,8 @@
     <!-- Footer -->
     <footer id="footer">
         <div class="wrapper">
-            <p>Created by <a href="https://github.com/justinv416" target="blank" class="footer__link" id="me-link">Justin Vien</a> @
-                <a href="https://www.junocollege.com" target="blank" class="footer__link" id="juno-link">Juno College</a>
+            <p>Created by <a href="https://github.com/justinv416" target="blank" class="footer__link" id="me__link">Justin Vien</a> @
+                <a href="https://www.junocollege.com" target="blank" class="footer__link" id="juno__link">Juno College</a>
             </p>
             <div class="misc__links">
                 <a href="https://www.artic.edu" target="blank" class="footer__link" id="misc__links--artic">Visit the Art Insititue
