@@ -20,6 +20,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 /* Global styling */
 html {
     scroll-behavior: smooth;
+    font-size: 125%;
 }
 
 h1, h2, footer .wrapper p  {
@@ -66,7 +67,7 @@ footer .wrapper {
     align-items: center;
     background-color: var(--pc-text-white);
     padding: 10px 50px;
-    font-size: 20px;
+    font-size: 1rem;
     font-family: var(--pf-playfair);
 }
 
@@ -100,7 +101,7 @@ footer .wrapper {
 }
 
 .nav__title--heading {
-    font-size: 25px;
+    font-size: 1.2rem;
 }
 
 /* Main section */
@@ -122,13 +123,13 @@ footer .wrapper {
 
 .main__copy h1 {
     padding-bottom: 20px;
-    font-size: 50px;
+    font-size: 2.5rem;
     text-transform: uppercase;
     font-weight: 500;
 }
 
 .main__copy p {
-    font-size: 25px;
+    font-size: 1.1rem;
     line-height: 40px;
     font-weight: 300;
 }
@@ -160,7 +161,7 @@ footer .wrapper {
 }
 
 .search__results--link {
-    font-size: 20px;
+    font-size: 1rem;
     text-transform: uppercase;
     position: relative;
 }
@@ -269,13 +270,13 @@ footer .wrapper {
 .art__description--title {
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 2rem;
 }
 
 .art__description--artist,
 .art__description--date {
     font-weight: 300;
-    font-size: 30px;
+    font-size: 1.5rem;
 }
 
 .art__description--classification,
@@ -523,7 +524,7 @@ footer .wrapper {
 
 @media (max-width: 500px) {
     .main__content--copy h1 {
-        font-size: 40px;
+        font-size: 1rem;
         margin: 0;
         padding: 10px 0;
     }
