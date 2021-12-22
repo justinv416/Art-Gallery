@@ -139,6 +139,7 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
+        $('#main').show();
         $('.loading__container').show();
         $('.loading__container').css('display', 'flex')
         $('.results__output').empty();
