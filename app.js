@@ -129,7 +129,6 @@ app.searchArtworks = function(number) {
             });
         });
         $('.results__next--button').show();
-        console.log(this.url)
     }).fail(function(error){
         console.log(error);
     });
@@ -243,6 +242,7 @@ app.modalControls = function() {
     //Event Delegation for dynamically generated html
     $(document).on('click', '.art__image--search', function() {
         $('#art__modal--search').attr('src', $(this).attr('src'));
+        $('#modal__search').css('display', 'flex');
         $('#modal__search').show();
         $('body').css('overflow', 'hidden');
     });
