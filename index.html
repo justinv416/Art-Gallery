@@ -32,6 +32,13 @@
                         <h2 class="nav__title--heading">Art Unlimited</h2>
                     </div>
                 </a>
+                <div class="test-container">
+                    <form action="" id="search__form">
+                        <div class="search__input--container">
+                            <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
+                        </div>
+                    </form>
+                </div>
             </div>
         </nav>
     </header>
@@ -52,14 +59,7 @@
                         </div>
                         <div class="main__buttons">
                             <a href="#random__art" class="random__art--link"><button class="main__buttons--generate">Generate Art</button></a>
-                            <button class="main__buttons--search">Search for Art</button>
                         </div>
-                        <form action="" id="search__form">
-                            <div class="search__input--container">
-                                <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
-                                <img src="./Icons/close.png" alt="A close icon" class="close__icon">
-                            </div>
-                        </form>
                         <div class="loading__container">
                             <a href="#results" class="search__results--link">Jump to search results.</a>
                             <div class="loading__animation--search">
@@ -81,7 +81,7 @@
         </section>
 
         <!-- Randomly generated art section -->
-        <section id="random__art">
+        <section id="random__art" class="random__art">
             <!-- loading animation -->
             <div class="loading-animation">
                 <div class="lds-ring">
@@ -114,9 +114,10 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
             <div class="modal" id="modal__random">
                 <img src="./Icons/close.png" alt="" class="close__icon" id="close__icon--modal" title="Click to close">
-                <div class="image-container">
+                <div class="image__container">
                     <img src="" alt="An image of art" class="art__image" id="art__modal--random">
                 </div>
             </div>
@@ -134,7 +135,9 @@
         <!-- modal -->
         <div class="modal" id="modal__search">
             <img src="./Icons/close.png" alt="An 'X' icon to close the modal" class="close__icon" id="close__icon--modal-search" title="Click to close">
-            <img src="" alt="An image of art" class="art__image" id="art__modal--search">
+            <div class="image__container">
+                <img src="" alt="An image of art" class="art__image" id="art__modal--search">
+            </div>
         </div>  
 
     </main>

@@ -139,6 +139,8 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
+        $('.loading__container').show();
+        $('.loading__container').css('display', 'flex')
         $('.results__output').empty();
         $('#random__art').hide();
         $('.search__results--link').hide();
@@ -197,8 +199,8 @@ app.btnControls = function() {
         $('.results__output').empty();
         $('.results__buttons').hide();
         $('.search__results--link').hide();
-        $('#search__form').hide();
         $('#random__art').show();
+        $('#main').hide();
     });
 
     $('.main__buttons--search').on('click', function() {
@@ -258,7 +260,7 @@ app.titleAnimation = function(){
     const timelineOne = gsap.timeline();
     timelineOne.to($('.main__image'), {
         duration: 1,
-        scale: 0.9
+        // scale: 0.9
     })
     .from($('h1'), {
         y: 20,
@@ -275,7 +277,7 @@ app.titleAnimation = function(){
         opacity: 0,
         duration: 0.5
     }, "<0.4")
-    .from($('.nav__title'), {
+    .from($('.nav__main'), {
         opacity: 0,
         y: 10,
         duration: 0.5
@@ -290,9 +292,7 @@ app.titleAnimation = function(){
 //Function to hide certain elements on init. 
 app.hideOnInit = function() {
     $('.modal').hide();
-    $('#search__form').hide();
     $('#random__art').hide();
-    $('.loading-animation').hide();
     $('.loading__animation--search').hide();
     $('.search__results--link').hide();
     $('.results__buttons').hide();
