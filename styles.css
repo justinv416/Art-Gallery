@@ -37,7 +37,7 @@ a {
 }
 
 button {
-    height: 50px;
+    padding: 15px 0;
     background: none;
     border: 2px solid var(--pc-text);
     font-size: 18px;
@@ -156,7 +156,7 @@ footer .wrapper {
     width: 100%;
 }
 
-.main__buttons {
+.main__button {
     margin-bottom: 30px;
     width: 50%;
     display: flex;
@@ -216,6 +216,11 @@ footer .wrapper {
     width: 40%;
 }
 
+#search__form--submit {
+    padding: 7px 0;
+    width: 10%;
+}
+
 .loading__container {
     display: none;
 }
@@ -223,7 +228,7 @@ footer .wrapper {
 #search__form--input,
 #search__form--input:focus {
     width: 100%;
-    padding: 10px;                                      
+    padding: 5px;   
 }
 
 /* Random art section */
@@ -454,6 +459,18 @@ footer .wrapper {
 
 /* Media Queries */
 @media (max-width: 1200px) {
+    .nav__main .wrapper {
+        flex-direction: column;
+    }
+
+    .form__container {
+        width: 100%;
+    }
+
+    .random__art {
+        height: auto;
+    }
+
     .main {
         padding: 0;
         height: auto;
@@ -509,7 +526,7 @@ footer .wrapper {
         padding: 10px 0;
     }
 
-    .main__buttons {
+    .main__button {
         width: 100%;
     }
 
@@ -560,20 +577,6 @@ footer .wrapper {
         font-size: 1rem;
         line-height: 30px;
         margin: 0;
-    }
-
-    .main__buttons {
-        flex-direction: column;
-        margin-top: 20px;
-    }
-
-    .main__buttons button,
-    .random__art--link {
-        width: 100%;
-    }
-
-    .main__buttons--generate {
-        margin-bottom: 5px;
     }
 
     #main__img--container {

@@ -10,6 +10,8 @@
         content="Art Unlimited is a website that uses the Art Institite of Chicago's 
         API to allow users to generate and search for artwork."
     >
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/35e5501a65.js" crossorigin="anonymous"></script>
     <!-- Stylesheet  -->
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts -->
@@ -36,6 +38,7 @@
                     <form action="" id="search__form">
                         <div class="search__input--container">
                             <input type="text" placeholder="Search for artwork e.g. Monet" id="search__form--input">
+                            <button type="submit" id="search__form--submit"><i class="fas fa-search"></i></button>
                         </div>
                     </form>
                 </div>
@@ -57,7 +60,7 @@
                                 for daily inspiration or search for artworks from their extensive collection.
                             </p>
                         </div>
-                        <div class="main__buttons">
+                        <div class="main__button">
                             <a href="#random__art" class="random__art--link"><button class="main__buttons--generate">Generate Art</button></a>
                         </div>
                         <div class="loading__container">

@@ -204,10 +204,6 @@ app.btnControls = function() {
         $('#main').hide();
     });
 
-    $('.main__buttons--search').on('click', function() {
-        $('#search__form').show();
-    });
-
     $('.close__icon').on('click', function(){
         $('#search__form').hide();
         $('.search__results--link').hide();
@@ -273,7 +269,7 @@ app.titleAnimation = function(){
         opacity: 0,
         duration: 0.5
     }, "<0.3")
-    .from($('.main__buttons'), {
+    .from($('.main__button'), {
         y: 20,
         opacity: 0,
         duration: 0.5
