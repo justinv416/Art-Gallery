@@ -195,7 +195,8 @@ app.btnControls = function() {
 
     $('.main__buttons--generate').on('click', function(){
         app.getRandomArtworks();
-        $('#results').empty();
+        $('.results__output').empty();
+        $('.results__buttons').hide();
         $('.search__results--link').hide();
         $('#search__form').hide();
         $('#random__art').show();
