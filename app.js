@@ -244,6 +244,12 @@ app.modalControls = function() {
     });
 };
 
+//Function that shows loading animation. 
+app.showLoadingAnimation = function(){
+    $('.loading-animation').show();
+    $('.loading-animation').css('display', 'flex');
+}
+
 //Function that calls GSAP Animations
 app.titleAnimation = function(){
     const timelineOne = gsap.timeline();
@@ -279,17 +285,11 @@ app.titleAnimation = function(){
 
 //Function to hide certain elements on init. 
 app.hideOnInit = function() {
-    $('.modal').hide();
     $('#random__art').hide();
     $('.results__buttons').hide();
     $('.results__next--button').hide();
     $('.results__prev--button').hide();
 };
-
-app.showLoadingAnimation = function(){
-    $('.loading-animation').show();
-    $('.loading-animation').css('display', 'flex');
-}
 
 //Function to initalize app
 app.init = function(){
