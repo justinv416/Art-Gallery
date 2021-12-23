@@ -13,9 +13,7 @@ app.checkImage = function(image) {
     };
 };
 
-/*Function that will display art with parameters that will be passed in during the ajax call.
-Note: might consolidate this with displaySearchArt function in the future, 
-next artwork button currently preventing me from doing so.*/ 
+//Function that will display art with parameters that will be passed in during the ajax call.
 app.displayRandomArt = function(imgSrc, title, artist, date, classification, medium, origin) {
     $('.art__image').attr('src', `https://www.artic.edu/iiif/2/${imgSrc}/full/843,/0/default.jpg`);
     $('.art__description--title').text(`${title}`);
@@ -92,7 +90,7 @@ app.getRandomArtworks = function() {
     });
 };
 
-//Function to search for and retrun artwork. Very messy? Should refactor at some point. 
+//Function to search for and retrun artwork. 
 app.searchArtworks = function(number) {
     //Show loading screen while call is being made.
     $('.loading__animation--search').show();
@@ -252,12 +250,11 @@ app.modalControls = function() {
     });
 };
 
-//GSAP Animations (Just for fun, might delete later.)
+//Function that calls GSAP Animations
 app.titleAnimation = function(){
     const timelineOne = gsap.timeline();
     timelineOne.to($('.main__image'), {
-        duration: 1,
-        // scale: 0.9
+        duration: 1
     })
     .from($('h1'), {
         y: 20,
@@ -290,7 +287,7 @@ app.titleAnimation = function(){
 app.hideOnInit = function() {
     $('.modal').hide();
     $('#random__art').hide();
-    $('.loading__animation--search').hide();
+    // $('.loading__animation--search').hide();
     $('.search__results--link').hide();
     $('.results__buttons').hide();
     $('.results__next--button').hide();

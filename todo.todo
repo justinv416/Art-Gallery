@@ -9,11 +9,12 @@
 ☐ Cleanup/refactor/consolidate.
 ✔ footer causing z-index issues @done(21-11-15 15:13)
 ✔ figcaption hidden on larger images, padding/margin issues, investigate. @done(21-11-19 16:40)
-☐ Make app completely responsive. 
-    ☐ Fluid typography,
-    ☐ Fluid Images,
-    ☐ Flex row to flex column on mobile. 
-☐ Include snippets.
+✔ Make app completely responsive. @done(21-12-23 14:45)
+    ✔ Fluid typography, @done(21-12-23 14:45)
+    ✔ Fluid Images, @done(21-12-23 14:45)
+    ✔ Flex row to flex column on mobile. @done(21-12-23 14:45)
+✔ Include snippets. @done(21-12-23 14:45)
+☐ Fix modal height/width
 
 //JS
 ☐ Clean up/refactor/consolidate. 

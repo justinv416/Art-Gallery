@@ -49,15 +49,21 @@ button:hover {
     color: var(--pc-text-white);
 }
 
+li {
+    list-style-type: none;
+}
+
 figcaption {
     margin-top: 10px;
     text-transform: uppercase;
 }
 
 footer {
+    background: var(--pc-text-white);
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 3;
 }
 
 footer .wrapper {
@@ -65,7 +71,6 @@ footer .wrapper {
     width: 90%;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--pc-text-white);
     padding: 20px 0;
     font-size: 1rem;
     font-family: var(--pf-playfair);
@@ -92,7 +97,7 @@ footer .wrapper {
     background-color: var(--pc-text-white);
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 
 .nav__main .wrapper {
@@ -325,7 +330,7 @@ footer .wrapper {
 .results__buttons {
     display: flex;
     justify-content: flex-end;
-    padding: 0 50px 50px 0;
+    padding: 0 50px 100px 0;
 }
 
 .results__buttons button {
@@ -358,6 +363,13 @@ footer .wrapper {
     background-color: var(--tc-juno);
 }
 
+.misc__links {
+    /* background: violet; */
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .misc__links a:first-child {
     margin-right: 20px;
 }
@@ -379,13 +391,14 @@ footer .wrapper {
 /* Loading screen */
 .loading-animation {
     height: 100vh;
-    width: 100vw;
-    background-color: var(--pc-text-white);
+    width: 100%;
+    background: var(--pc-text-white);
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    z-index: 2;
+    top: 0;
+    z-index: 1 ;
 }
 
 .lds-ring {
@@ -434,7 +447,7 @@ footer .wrapper {
     height: auto;
     width: 100%;
     background-color: var(--pc-text-white);
-    z-index: 3;
+    z-index: 2;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -489,7 +502,13 @@ footer .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        padding: 30px 0;
     }
+
+    .misc__links li:nth-last-of-type(2) {
+        padding: 10px 0;
+    } 
 
     .misc__links a:first-child {
         margin: 20px 0;
