@@ -1,7 +1,7 @@
 //HTML
 ✔ Clean up/refactor/consolidate. @done(21-11-16 21:01)
 ✔ Add modal/figcaption to search results @done(21-11-19 15:50)
-☐ Clean up/consolidate ids and classes
+✔ Clean up/consolidate ids and classes @done(21-12-23 14:48)
 ✘ Explore the possibility of displaying search results in a seperate page. @cancelled(21-12-19 18:14)
 ☐ Add accessibility features (screen-readers, etc.)
 

@@ -56,7 +56,7 @@ app.getRandomArtworks = function() {
     //For performance reasons this API is limited to 100 pages
     const randomPageNum = app.generateRandomNum(100);
     //Show loading animation while data is being fetched. 
-    $('.loading-animation').show();
+    app.showLoadingAnimation();
     $.ajax({
         url: `https://api.artic.edu/api/v1/artworks?`,
         dataType: 'json',
@@ -93,7 +93,7 @@ app.getRandomArtworks = function() {
 //Function to search for and retrun artwork. 
 app.searchArtworks = function(number) {
     //Show loading screen while call is being made.
-    $('.loading__animation--search').show();
+    app.showLoadingAnimation();
     //This call will return an array of ids that will represent the respective artwork.
     $.ajax({
         url: 'https://api.artic.edu/api/v1/artworks/search?',
@@ -118,7 +118,7 @@ app.searchArtworks = function(number) {
                 dataType: 'json'
             }).then(function(response){
                 //Hide loading animation
-                $('.loading__animation--search').hide();
+                $('.loading-animation').hide();
                 //Displays link where users can click to jump to results
                 $('.search__results--link').show();
                 const artData = response.data;
@@ -137,9 +137,7 @@ app.submitForm = function() {
     const form = $('form')
     form.on('submit', function(event){
         event.preventDefault();
-        $('#main').show();
-        $('.loading__container').show();
-        $('.loading__container').css('display', 'flex')
+        $('#main').hide();
         $('.results__output').empty();
         $('#random__art').hide();
         $('.search__results--link').hide();
@@ -173,7 +171,6 @@ app.paginationControls = function(){
     $('.results__next--button').on('click', function(){
         $('.results__output').empty();
         $('#random__art').hide();
-        $('.search__results--link').hide()
         app.getNextPage();
         app.searchArtworks(page);
     });
@@ -181,7 +178,6 @@ app.paginationControls = function(){
     $('.results__prev--button').on('click', function(){
         $('.results__output').empty();
         $('#random__art').hide();
-        $('.search__results--link').hide()
         app.getPreviousPage();
         app.searchArtworks(page);
     });
@@ -287,12 +283,16 @@ app.titleAnimation = function(){
 app.hideOnInit = function() {
     $('.modal').hide();
     $('#random__art').hide();
-    // $('.loading__animation--search').hide();
     $('.search__results--link').hide();
     $('.results__buttons').hide();
     $('.results__next--button').hide();
     $('.results__prev--button').hide();
 };
+
+app.showLoadingAnimation = function(){
+    $('.loading-animation').show();
+    $('.loading-animation').css('display', 'flex');
+}
 
 //Function to initalize app
 app.init = function(){

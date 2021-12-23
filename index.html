@@ -63,17 +63,6 @@
                         <div class="main__button">
                             <a href="#random__art" class="random__art--link"><button class="main__buttons--generate">Generate Art</button></a>
                         </div>
-                        <div class="loading__container">
-                            <a href="#results" class="search__results--link">Jump to search results.</a>
-                            <div class="loading__animation--search">
-                                <div class="lds-ring">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="main__image--container">
                         <img src="./Images/orfeas-green-G5A5ZNjS2tE-unsplash.jpg" alt="An image of art" class="main__image">
@@ -128,6 +117,14 @@
 
         <!-- Search Results -->
         <section id="results">
+            <div class="loading-animation">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
             <div class="results__output"></div>
             <div class="results__buttons">
                 <button class="results__prev--button">Prev Page</button>
@@ -162,7 +159,7 @@
                     <a href="https://www.artic.edu" target="blank" class="footer__link" id="misc__links--artic">Visit the Art Insititue of Chicago</a>
                 </li>
                 <li>
-                    <a href="#main" class="footer__link" id="misc__links--btt">Back to top</a>
+                    <a href="#results" class="footer__link" id="misc__links--btt">Back to top</a>
                 </li>
                 <li>
                     <a href="" class="footer__link" id="misc__links--bth">Back to Home</a>
