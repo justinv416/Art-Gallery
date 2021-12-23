@@ -178,32 +178,6 @@ footer .wrapper {
     margin-right: 10px;
 }
 
-.search__results--link {
-    font-size: 1rem;
-    text-transform: uppercase;
-    position: relative;
-}
-
-.search__results--link:after,
-.footer__link:hover:after  {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--pc-text);
-    animation-delay: 3s;
-    animation: grow .5s forwards;
-}
-
-.loading__container {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    margin-top: 40px;
-}
-
 /* Form */
 .search__input--container {
     display: flex;

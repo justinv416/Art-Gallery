@@ -193,14 +193,12 @@ app.btnControls = function() {
         app.getRandomArtworks();
         $('.results__output').empty();
         $('.results__buttons').hide();
-        $('.search__results--link').hide();
         $('#random__art').show();
         $('#main').hide();
     });
 
     $('.close__icon').on('click', function(){
         $('#search__form').hide();
-        $('.search__results--link').hide();
     });
 };
 
@@ -283,7 +281,6 @@ app.titleAnimation = function(){
 app.hideOnInit = function() {
     $('.modal').hide();
     $('#random__art').hide();
-    $('.search__results--link').hide();
     $('.results__buttons').hide();
     $('.results__next--button').hide();
     $('.results__prev--button').hide();
