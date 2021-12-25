@@ -239,12 +239,12 @@ footer .wrapper {
 .art__image {
     width: auto;
     height: 100%;
+    max-height: 60vh;
 }
 
 .art__image--random {
     width: 100%;
     height: 100%;
-    max-height: 700px;
 }
 
 .art__description {
@@ -320,7 +320,7 @@ footer .wrapper {
 
 .art__image--search {
     width: 100%;
-    max-height: 700px;
+    max-height: 60vh;
 }
 
 /* Footer */
@@ -535,7 +535,7 @@ footer .wrapper {
 
     .results__container {
         flex-direction: column;
-        padding: 0;
+        padding: 60px 0 0 0;
     }
 
     .image__container--search {
@@ -593,11 +593,15 @@ footer .wrapper {
     }
 
     .art__description--title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .art__description--artist {
+        font-size: 1.1rem;
     }
 
     .art__description h3 {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .next__artwork--button {
