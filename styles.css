@@ -328,12 +328,22 @@ footer .wrapper {
     position: relative;
 }
 
+.footer__link:hover:after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+}
+
 #me__link:hover:after {
     background-color: var(--tc-github);
+    animation: grow 0.5s forwards;
 }
 
 #juno__link:hover:after {
     background-color: var(--tc-juno);
+    animation: grow 1s forwards;
 }
 
 .misc__links {
@@ -346,9 +356,12 @@ footer .wrapper {
     padding: 0 50px;
 }
 
-#misc__links--artic:hover:after, #misc__links--btt:hover:after {
+#misc__links--artic:hover:after, 
+#misc__links--btt:hover:after,
+#misc__links--bth:hover:after {
     background-color: var(--pc-text);
     opacity: .5;
+    animation: grow 1s forwards;
 }
 
 /* Animation for footer links */
